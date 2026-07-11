@@ -1,305 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toit Bhubaneswar - Brewpub & Cafe in Jaydev Vihar, Bhubaneswar</title>
-  <meta name="description" content="Toit Bhubaneswar is a premium Brewpub & Cafe located in Jaydev Vihar, Bhubaneswar. Visit us for an unforgettable cafe experience.">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #c2410c;
-      --bg: #1c1210;
-      --card: #292018;
-      --text: #fef3c7;
-      --muted: #d6d3d1;
-      --accent2: #fb923c;
-      --shadow: rgba(194,65,12,0.2);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-    
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 18px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      backdrop-filter: blur(12px);
-      background: rgba(0,0,0,0.15);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-    .nav-links a { color: #fff; text-decoration: none; margin-left: 28px; font-size: 0.95rem; opacity: 0.85; transition: opacity 0.3s; }
-    .nav-links a:hover { opacity: 1; color: var(--primary); }
-    
-    /* HERO */
-    header {
-      height: 100vh;
-      background: linear-gradient(rgba(28,18,16,0.55),rgba(28,18,16,0.9)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1600&auto=format') no-repeat center center/cover;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 20px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--bg);
-      padding: 6px 18px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    header h1 {
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 16px;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      letter-spacing: -1px;
-    }
-    header p.tagline {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: rgba(255,255,255,0.8);
-      max-width: 600px;
-      margin-bottom: 36px;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--bg);
-      padding: 15px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 24px var(--shadow);
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px var(--shadow); filter: brightness(1.1); }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      margin-left: 14px;
-    }
-    .btn-outline:hover { background: var(--primary); color: var(--bg); }
-    
-    /* SECTIONS */
-    .section { max-width: 1100px; margin: 100px auto; padding: 0 24px; }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: var(--muted);
-      max-width: 550px;
-      margin: 0 auto 50px;
-      font-size: 1.05rem;
-    }
-    
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-      direction: rtl;
-    }
-    .about-grid > * { direction: ltr; }
-    .about-img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
-    .about-text h3 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-      color: var(--primary);
-    }
-    .about-text p { color: var(--muted); font-size: 1.05rem; margin-bottom: 24px; }
-    .about-stats {
-      display: flex; gap: 30px; margin-top: 20px;
-    }
-    .stat { text-align: center; }
-    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
-    .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    
-    /* FEATURES */
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
-    .feature-card {
-      background: var(--card);
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent2));
-      transform: scaleX(0);
-      transition: transform 0.35s ease;
-    }
-    .feature-card:hover::before { transform: scaleX(1); }
-    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow); }
-    .feature-card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 10px; }
-    .feature-card p { color: var(--muted); font-size: 0.95rem; }
-    
-    /* MAP & CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
-    .contact-card {
-      background: var(--card);
-      padding: 28px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
-    }
-    .contact-card h4 { color: var(--primary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; }
-    .contact-card p { font-size: 1.05rem; }
-    .contact-card a { color: var(--primary); text-decoration: none; }
-    .map-wrap {
-      width: 100%;
-      height: 380px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    
-    /* CTA */
-    .cta-section {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      border-radius: 16px;
-      margin: 80px auto;
-      max-width: 1100px;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .cta-section h2 { font-size: 2rem; margin-bottom: 16px; }
-    .cta-section p { color: var(--muted); margin-bottom: 30px; font-size: 1.05rem; }
-    
-    /* FOOTER */
-    footer {
-      background: #0c0a09;
-      padding: 40px 24px;
-      text-align: center;
-      color: #d6d3d1;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    footer a { color: var(--primary); text-decoration: none; }
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-grid { direction: rtl; direction: ltr; }
-      nav { padding: 14px 20px; }
-      .nav-links { display: none; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a href="#" class="nav-brand">Toit Bhubaneswar</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#specials">Specials</a>
-      <a href="#contact">Find Us</a>
-    </div>
-  </nav>
-
-  <header>
-    <span class="badge">Brewpub & Cafe</span>
-    <h1>Toit Bhubaneswar</h1>
-    <p class="tagline">Your favourite destination for premium cafe experiences in Jaydev Vihar, Bhubaneswar</p>
-    <div>
-      <a href="#" class="btn" target="_blank">Book a Table</a>
-      <a href="#contact" class="btn btn-outline">Find Us</a>
-    </div>
-  </header>
-
-  <section class="section" id="about">
-    <div class="about-grid">
-      <div class="about-text">
-        <h3>Welcome to Toit Bhubaneswar</h3>
-        <p>Step into Toit Bhubaneswar and discover a world of flavors, comfort, and community in the heart of Jaydev Vihar. We are more than just a cafe; we are a destination where every visit tells a story.</p>
-        <p>Whether you are catching up with friends, powering through work, or simply enjoying a quiet moment, our space is designed to make you feel right at home.</p>
-        <div class="about-stats">
-          <div class="stat"><div class="stat-num">4.5</div><div class="stat-label">Rating</div></div>
-          <div class="stat"><div class="stat-num">Jaydev Vihar</div><div class="stat-label">Location</div></div>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format" alt="Inside Toit Bhubaneswar" class="about-img">
-    </div>
-  </section>
-
-  <section class="section" id="specials">
-    <h2 class="section-title">What Makes Us Special</h2>
-    <p class="section-subtitle">Every detail at Toit Bhubaneswar is crafted to deliver an exceptional experience.</p>
-    <div class="features">
-      <div class="feature-card">
-        <h3>&#9749; Handcrafted Brews</h3>
-        <p>Sourced from top-tier coffee bean estates, roasted to perfection.</p>
-      </div>
-      <div class="feature-card">
-        <h3>&#127856; Fresh Bakery Items</h3>
-        <p>Delicious handmade desserts and pastries prepared fresh daily.</p>
-      </div>
-      <div class="feature-card">
-        <h3>&#10024; Cozy Atmosphere</h3>
-        <p>A warm, inviting space perfect for work, study, or hanging out.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-section">
-    <h2>Ready to Visit?</h2>
-    <p>Reserve your table today and experience Toit Bhubaneswar for yourself.</p>
-    <a href="#" class="btn" target="_blank">WhatsApp Reservation</a>
-  </div>
-
-  <section class="section" id="contact">
-    <h2 class="section-title">Find Us</h2>
-    <p class="section-subtitle">We would love to see you. Here is how to reach us.</p>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h4>ðŸ“ Address</h4>
-        <p>Jaydev Vihar, Bhubaneswar, Odisha</p>
-      </div>
-      <div class="contact-card">
-        <h4>ðŸ“ž Phone</h4>
-        <p><a href="tel:N/A">N/A</a></p>
-      </div>
-    </div>
-    <div class="map-wrap">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0"
-        src="https://maps.google.com/maps?q=Toit%20Bhubaneswar%2C%20Jaydev%20Vihar%2C%20Bhubaneswar&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        allowfullscreen loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Toit Bhubaneswar &middot; Jaydev Vihar, Bhubaneswar &middot; Crafted by <a href="https://boostrnetwave.com" target="_blank">BoostrNetWave</a></p>
-  </footer>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Toit Bhubaneswar - Brewpub & Cafe in Jaydev Vihar</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'',sans-serif;background:#1c1210;color:#fef3c7;line-height:1.7}
+h1,h2,h3{font-family:'',serif}
+.hero-bold{padding:140px 50px 80px;max-width:1200px;margin:0 auto}
+.hero-bold .tag{color:#c2410c;font-size:.9rem;text-transform:uppercase;letter-spacing:4px;font-weight:600;margin-bottom:20px;display:block}
+.hero-bold h1{font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:.95;margin-bottom:24px;letter-spacing:-3px}
+.hero-bold h1 span{color:#c2410c}
+.hero-bold p{color:#d6d3d1;font-size:1.15rem;max-width:500px;margin-bottom:30px}
+.btn{display:inline-block;background:#c2410c;color:#1c1210;padding:16px 36px;border-radius:0;text-decoration:none;font-weight:600;transition:all .3s;text-transform:uppercase;letter-spacing:2px;font-size:.8rem}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.img-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;padding:0 50px;max-width:1200px;margin:0 auto 80px}
+.img-row img{width:100%;height:350px;object-fit:cover}
+.about-wide{display:grid;grid-template-columns:1fr 1fr;max-width:1200px;margin:0 auto 80px;min-height:400px}
+.about-wide .text{padding:60px 50px;display:flex;flex-direction:column;justify-content:center;background:#292018}
+.about-wide .text h2{font-size:2rem;margin-bottom:14px;color:#c2410c}.about-wide .text p{color:#d6d3d1;margin-bottom:20px}
+.about-wide .img{background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80') center/cover}
+.ticker{overflow:hidden;padding:20px 0;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:80px}
+.ticker-inner{display:flex;gap:60px;animation:scroll 20s linear infinite;white-space:nowrap}
+.ticker-inner span{font-size:1.4rem;font-weight:700;color:#d6d3d1;opacity:.4;text-transform:uppercase;letter-spacing:4px}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.contact-split{display:grid;grid-template-columns:1fr 1fr;max-width:1200px;margin:0 auto 0;min-height:400px}
+.contact-split .info{padding:60px 50px;background:#292018;display:flex;flex-direction:column;justify-content:center}
+.contact-split .info h2{font-size:1.8rem;margin-bottom:24px;color:#c2410c}
+.contact-split .info p{color:#d6d3d1;margin-bottom:12px}.contact-split .info a{color:#c2410c;text-decoration:none}
+.contact-split .map iframe{width:100%;height:100%;min-height:400px;border:none}
+footer{background:#0c0a09;padding:50px 20px;text-align:center;color:#a8a29e;font-size:.85rem}footer a{color:#c2410c;text-decoration:none}
+footer h3{font-size:1.4rem;margin-bottom:10px;color:#c2410c}
+@media(max-width:768px){.hero-bold{padding:100px 24px 60px}.img-row{grid-template-columns:1fr;padding:0 24px}.img-row img{height:250px}.about-wide,.contact-split{grid-template-columns:1fr}.about-wide .text,.contact-split .info{padding:40px 24px}}
+</style></head><body>
+<div class="hero-bold"><span class="tag">Brewpub & Cafe &mdash; Jaydev Vihar</span><h1>Welcome to<br><span>Toit Bhubaneswar</span></h1><p>A destination where every visit tells a story. Great food, great coffee, great company.</p><a href="#" class="btn" target="_blank">Reserve a Table</a></div>
+<div class="img-row"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=900&q=80" alt="Toit Bhubaneswar"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&q=80" alt="Toit Bhubaneswar food"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&q=80" alt="Toit Bhubaneswar drinks"></div>
+<div class="ticker"><div class="ticker-inner"><span>&#9749; Premium Coffee</span><span>&#127856; Fresh Food</span><span>&#10024; Great Vibes</span><span>&#128205; Jaydev Vihar</span><span>&#9749; Premium Coffee</span><span>&#127856; Fresh Food</span><span>&#10024; Great Vibes</span><span>&#128205; Jaydev Vihar</span></div></div>
+<div class="about-wide"><div class="text"><h2>Our Philosophy</h2><p>At Toit Bhubaneswar, we believe that the best moments happen over great food and drinks. Every ingredient is carefully selected, every dish is crafted with passion.</p><p>Located in the heart of Jaydev Vihar, we have created a space that feels like home.</p><a href="#" class="btn" target="_blank">WhatsApp Us</a></div><div class="img"></div></div>
+<div class="contact-split"><div class="info"><h2>Find Us</h2><p><strong>Address:</strong> Jaydev Vihar, Bhubaneswar, Odisha</p><p><strong>Phone:</strong> <a href="tel:N/A">N/A</a></p><p><strong>Hours:</strong> Open daily, 9 AM - 11 PM</p><br><a href="#" class="btn" target="_blank">Book Now</a></div><div class="map"><iframe src="https://maps.google.com/maps?q=Toit%20Bhubaneswar%2C%20Jaydev%20Vihar%2C%20Bhubaneswar&z=15&output=embed" allowfullscreen loading="lazy"></iframe></div></div>
+<footer><h3>Toit Bhubaneswar</h3><p>Jaydev Vihar, Bhubaneswar &middot; Built by <a href="https://boostrnetwave.com" target="_blank">BoostrNetWave</a></p></footer>
+</body></html>
