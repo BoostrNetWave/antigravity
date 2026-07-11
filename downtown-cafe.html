@@ -3,225 +3,302 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Downtown Cafe | Premium CafÃ© & Bistro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <title>Downtown Cafe - Classic Cafe & Restaurant in Uttara / Old Town, Bhubaneswar</title>
+  <meta name="description" content="Downtown Cafe is a premium Classic Cafe & Restaurant located in Uttara / Old Town, Bhubaneswar. Visit us for an unforgettable cafe experience.">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #c89666;
-      --bg: #0c0a09;
-      --card: #1c1917;
-      --text: #f5f5f4;
-      --text-muted: #a8a29e;
+      --primary: #a855f7;
+      --bg: #0f0520;
+      --card: #1a0a30;
+      --text: #f5f3ff;
+      --muted: #c4b5fd;
+      --accent2: #d8b4fe;
+      --shadow: rgba(168,85,247,0.2);
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Outfit', sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--bg);
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
     }
+    h1, h2, h3 { font-family: 'Outfit', serif; }
+    
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand { font-family: 'Outfit', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+    .nav-links a { color: #fff; text-decoration: none; margin-left: 28px; font-size: 0.95rem; opacity: 0.85; transition: opacity 0.3s; }
+    .nav-links a:hover { opacity: 1; color: var(--primary); }
+    
+    /* HERO */
     header {
-      height: 90vh;
-      background: linear-gradient(rgba(12,10,9,0.7), rgba(12,10,9,0.9)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600') no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+      height: 100vh;
+      background: linear-gradient(rgba(15,5,32,0.6),rgba(15,5,32,0.92)), url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1600&auto=format') no-repeat center center/cover;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; padding: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--bg);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
     header h1 {
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-size: clamp(2.8rem, 7vw, 5rem);
       font-weight: 800;
-      letter-spacing: -1px;
       color: #fff;
-      margin-bottom: 10px;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      margin-bottom: 16px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      letter-spacing: -1px;
     }
-    header p {
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-bottom: 30px;
+    header p.tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      margin-bottom: 36px;
     }
     .btn {
       display: inline-block;
       background: var(--primary);
-      color: #0c0a09;
-      padding: 14px 32px;
+      color: var(--bg);
+      padding: 15px 36px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 1rem;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(200, 150, 102, 0.2);
+      box-shadow: 0 8px 24px var(--shadow);
     }
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(200, 150, 102, 0.4);
-      background: #dfb287;
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px var(--shadow); filter: brightness(1.1); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      margin-left: 14px;
     }
-    .section {
-      max-width: 1100px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
+    .btn-outline:hover { background: var(--primary); color: var(--bg); }
+    
+    /* SECTIONS */
+    .section { max-width: 1100px; margin: 100px auto; padding: 0 24px; }
     .section-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
       text-align: center;
-      position: relative;
     }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 3px;
-      background: var(--primary);
-      margin: 15px auto 0;
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 550px;
+      margin: 0 auto 50px;
+      font-size: 1.05rem;
     }
+    
+    /* ABOUT */
     .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
       align-items: center;
+      
     }
+    .about-grid > * {  }
     .about-img {
       width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      aspect-ratio: 4/3;
+      object-fit: cover;
     }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+    .about-text h3 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+      color: var(--primary);
     }
+    .about-text p { color: var(--muted); font-size: 1.05rem; margin-bottom: 24px; }
+    .about-stats {
+      display: flex; gap: 30px; margin-top: 20px;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* FEATURES */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
     .feature-card {
       background: var(--card);
-      padding: 30px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(200, 150, 102, 0.3);
-    }
-    .feature-card h3 {
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin-bottom: 12px;
-    }
-    .map-container {
-      width: 100%;
-      height: 400px;
-      border-radius: 16px;
+      padding: 32px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.35s ease;
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.05);
     }
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent2));
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
     }
-    .contact-item {
-      text-align: center;
+    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow); }
+    .feature-card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 10px; }
+    .feature-card p { color: var(--muted); font-size: 0.95rem; }
+    
+    /* MAP & CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+    .contact-card {
       background: var(--card);
-      padding: 30px;
-      border-radius: 16px;
-    }
-    .contact-item h4 {
-      font-size: 1.1rem;
-      color: var(--primary);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #000;
-      padding: 40px 20px;
+      padding: 28px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      color: var(--text-muted);
-      font-size: 0.9rem;
+    }
+    .contact-card h4 { color: var(--primary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; }
+    .contact-card p { font-size: 1.05rem; }
+    .contact-card a { color: var(--primary); text-decoration: none; }
+    .map-wrap {
+      width: 100%;
+      height: 380px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--card), var(--bg));
+      border-radius: 20px;
+      margin: 80px auto;
+      max-width: 1100px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .cta-section h2 { font-size: 2rem; margin-bottom: 16px; }
+    .cta-section p { color: var(--muted); margin-bottom: 30px; font-size: 1.05rem; }
+    
+    /* FOOTER */
+    footer {
+      background: #09021a;
+      padding: 40px 24px;
+      text-align: center;
+      color: #c4b5fd;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    footer a { color: var(--primary); text-decoration: none; }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-grid {  direction: ltr; }
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hero Header -->
+  <nav>
+    <a href="#" class="nav-brand">Downtown Cafe</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#specials">Specials</a>
+      <a href="#contact">Find Us</a>
+    </div>
+  </nav>
+
   <header>
+    <span class="badge">Classic Cafe & Restaurant</span>
     <h1>Downtown Cafe</h1>
-    <p>Classic Cafe & Restaurant â€¢ Uttara / Old Town</p>
-    <a href="https://wa.me/=Hi!%20I%20saw%20the%20website%20demo%20for%20Downtown%20Cafe%20and%20would%20like%20to%20connect." class="btn" target="_blank">Book a Table</a>
+    <p class="tagline">Your favourite destination for premium cafe experiences in Uttara / Old Town, Bhubaneswar</p>
+    <div>
+      <a href="https://wa.me/=Hi!%20I%20saw%20the%20website%20demo%20for%20Downtown%20Cafe%20and%20would%20love%20to%20connect." class="btn" target="_blank">Book a Table</a>
+      <a href="#contact" class="btn btn-outline">Find Us</a>
+    </div>
   </header>
 
-  <!-- About Section -->
-  <section class="section">
-    <h2 class="section-title">Welcome to Downtown Cafe</h2>
+  <section class="section" id="about">
     <div class="about-grid">
-      <div>
-        <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted);">Experience premium quality coffee, authentic snacks, and an unforgettable cozy vibe in the heart of Uttara / Old Town. Whether you are looking to work, hang out with friends, or enjoy some peaceful downtime, Downtown Cafe is your perfect destination.</p>
-        <a href="https://wa.me/=Hi!%20I%20saw%20the%20website%20demo%20for%20Downtown%20Cafe%20and%20would%20like%20to%20connect." class="btn" target="_blank">WhatsApp Reservation</a>
+      <div class="about-text">
+        <h3>Welcome to Downtown Cafe</h3>
+        <p>Step into Downtown Cafe and discover a world of flavors, comfort, and community in the heart of Uttara / Old Town. We are more than just a cafe; we are a destination where every visit tells a story.</p>
+        <p>Whether you are catching up with friends, powering through work, or simply enjoying a quiet moment, our space is designed to make you feel right at home.</p>
+        <div class="about-stats">
+          <div class="stat"><div class="stat-num">4.5</div><div class="stat-label">Rating</div></div>
+          <div class="stat"><div class="stat-num">Uttara / Old Town</div><div class="stat-label">Location</div></div>
+        </div>
       </div>
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800" alt="Specialty Coffee" class="about-img">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format" alt="Inside Downtown Cafe" class="about-img">
     </div>
   </section>
 
-  <!-- Gallery/Features -->
-  <section class="section">
-    <h2 class="section-title">Our Specials</h2>
+  <section class="section" id="specials">
+    <h2 class="section-title">What Makes Us Special</h2>
+    <p class="section-subtitle">Every detail at Downtown Cafe is crafted to deliver an exceptional experience.</p>
     <div class="features">
       <div class="feature-card">
-        <h3>â˜• Handcrafted Brews</h3>
-        <p style="color: var(--text-muted);">Sourced from top-tier coffee bean estates in India, roasted to perfection.</p>
+        <h3>&#9749; Handcrafted Brews</h3>
+        <p>Sourced from top-tier coffee bean estates, roasted to perfection.</p>
       </div>
       <div class="feature-card">
-        <h3>ðŸ° Fresh Bakery Items</h3>
-        <p style="color: var(--text-muted);">Delicious handmade desserts and pastries prepared fresh daily by our chefs.</p>
+        <h3>&#127856; Fresh Bakery Items</h3>
+        <p>Delicious handmade desserts and pastries prepared fresh daily.</p>
       </div>
       <div class="feature-card">
-        <h3>âœ¨ Work & Study Zone</h3>
-        <p style="color: var(--text-muted);">Equipped with high-speed WiFi, power outlets, and peaceful indoor seating.</p>
+        <h3>&#10024; Cozy Atmosphere</h3>
+        <p>A warm, inviting space perfect for work, study, or hanging out.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact & Map -->
-  <section class="section">
+  <div class="cta-section">
+    <h2>Ready to Visit?</h2>
+    <p>Reserve your table today and experience Downtown Cafe for yourself.</p>
+    <a href="https://wa.me/=Hi!%20I%20saw%20the%20website%20demo%20for%20Downtown%20Cafe%20and%20would%20love%20to%20connect." class="btn" target="_blank">WhatsApp Reservation</a>
+  </div>
+
+  <section class="section" id="contact">
     <h2 class="section-title">Find Us</h2>
-    <div class="contact-info">
-      <div class="contact-item">
-        <h4>Address</h4>
+    <p class="section-subtitle">We would love to see you. Here is how to reach us.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h4>ðŸ“ Address</h4>
         <p>Uttara Square, Pubasasan, Uttara, Bhubaneswar - 751002</p>
       </div>
-      <div class="contact-item">
-        <h4>Contact Phone</h4>
-        <p>0674-2536192</p>
+      <div class="contact-card">
+        <h4>ðŸ“ž Phone</h4>
+        <p><a href="tel:0674-2536192">0674-2536192</a></p>
       </div>
     </div>
-    
-    <div class="map-container">
-      <iframe 
-        width="100%" 
-        height="100%" 
-        frameborder="0" 
-        style="border:0" 
-        src="https://maps.google.com/maps?q=Downtown%20Cafe%2C%20Uttara%20%2F%20Old%20Town%2C%20Bhubaneswar&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-        allowfullscreen>
-      </iframe>
+    <div class="map-wrap">
+      <iframe width="100%" height="100%" frameborder="0" style="border:0"
+        src="https://maps.google.com/maps?q=Downtown%20Cafe%2C%20Uttara%20%2F%20Old%20Town%2C%20Bhubaneswar&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>Â© 2026 Downtown Cafe Bhubaneswar. Crafted beautifully.</p>
+    <p>&copy; 2026 Downtown Cafe &middot; Uttara / Old Town, Bhubaneswar &middot; Crafted by <a href="https://boostrnetwave.com" target="_blank">BoostrNetWave</a></p>
   </footer>
 
 </body>
