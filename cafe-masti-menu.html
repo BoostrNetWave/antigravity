@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafe Mastié | Online Order</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed": "#ffdad4",
+                "error-container": "#ffdad6",
+                "on-tertiary-container": "#4f3d00",
+                "on-background": "#1b1d0e",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-container": "#ae8d87",
+                "secondary-fixed": "#ffdcc6",
+                "tertiary": "#755b00",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "on-primary": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "inverse-surface": "#303221",
+                "primary-container": "#3e2723",
+                "secondary-fixed-dim": "#eabda0",
+                "outline": "#827472",
+                "inverse-on-surface": "#f2f2d9",
+                "surface-container-highest": "#e4e4cc",
+                "surface-container": "#efefd7",
+                "on-primary-fixed": "#2b1613",
+                "secondary": "#79573f",
+                "on-surface": "#1b1d0e",
+                "surface-container-high": "#eaead1",
+                "primary-fixed-dim": "#e3beb8",
+                "on-secondary-fixed": "#2d1604",
+                "on-surface-variant": "#504442",
+                "background": "#fbfbe2",
+                "tertiary-container": "#cea72c",
+                "on-secondary-fixed-variant": "#5f402a",
+                "tertiary-fixed-dim": "#ecc246",
+                "on-tertiary-fixed": "#241a00",
+                "on-secondary-container": "#7a5840",
+                "surface": "#fbfbe2",
+                "tertiary-fixed": "#ffe08e",
+                "primary": "#271310",
+                "inverse-primary": "#e3beb8",
+                "outline-variant": "#d3c3c0",
+                "surface-tint": "#745853",
+                "error": "#ba1a1a",
+                "on-primary-fixed-variant": "#5b403c",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed-variant": "#584400",
+                "surface-variant": "#e4e4cc",
+                "surface-container-low": "#f5f5dc",
+                "surface-dim": "#dbdcc3",
+                "surface-bright": "#fbfbe2",
+                "secondary-container": "#ffd1b3"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "gutter": "24px",
+                "container-max": "1280px",
+                "margin-desktop": "64px",
+                "unit": "8px",
+                "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                "display-lg": ["Playfair Display"],
+                "display-lg-mobile": ["Playfair Display"],
+                "headline-lg": ["Playfair Display"],
+                "body-md": ["Poppins"],
+                "label-md": ["Poppins"],
+                "body-lg": ["Poppins"],
+                "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #fbfbe2; color: #1b1d0e; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(193, 162, 39, 0.1);
+        }
+        .category-scroll::-webkit-scrollbar { display: none; }
+        .category-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .active-pill {
+            background-color: #cea72c;
+            color: #ffffff;
+        }
+        .scale-on-hover:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary-container/80 backdrop-blur-2xl shadow-sm border-b border-tertiary/10">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<h1 class="font-display-lg text-display-lg-mobile text-primary dark:text-primary-fixed">Cafe Mastié</h1>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="cafe-masti.html">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="cafe-masti-about.html">About Us</a>
+<a class="text-tertiary font-bold border-b-2 border-tertiary pb-1" href="cafe-masti-menu.html">Online Order</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="cafe-masti-contact.html">Contact Us</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-2 rounded-full hover:scale-105 transition-transform">
+                Order Now
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-24 px-gutter max-w-container-max mx-auto">
+<!-- Hero Search Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Our Artisanal Menu</h2>
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-2xl">Crafted with patience and heritage. Browse our curated selection of roasts, bakes, and bistro specialties.</p>
+</div>
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-4 pl-12 pr-6 focus:ring-2 focus:ring-tertiary-container focus:outline-none transition-all duration-300 font-body-md text-body-md" placeholder="Search for your favorites..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Categories Filter -->
+<section class="mb-16">
+<div class="flex gap-4 overflow-x-auto category-scroll pb-4">
+<button class="active-pill px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap shadow-sm transition-all duration-300">All Items</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Coffee</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Tea</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Sandwiches</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Pizza</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Burgers</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Pasta</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Desserts</button>
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-full font-label-md text-label-md whitespace-nowrap hover:bg-tertiary-fixed-dim transition-all duration-300">Cakes</button>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<div class="glass-card rounded-[24px] overflow-hidden group shadow-lg transition-transform duration-500 hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A top-down professional food photography shot of a steaming latte with intricate rosetta latte art. The coffee sits on a minimalist dark ceramic coaster atop a cream marble table. Warm morning light creates soft shadows, highlighting the creamy texture and rich brown coffee colors, perfectly aligned with a quiet luxury café aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQZ3CvTt_ERYv0tzzqn74OTJUWNjb6ycNs-59T9I4OAU11M8yVngnxmrNWC33Dkt9n_p9OGuUYrdpJA1xotCB7dt1D0K9rv5RlFYOImkYKCoK7RvZuj6GitrVWrhz-8lfdYnA9HP22BpJmDO87OjQIhSQql5QmnX8czS_VMY6ikXdRUEbAv1n_AsOn0TDleDBaNKMDMhhUIvfKIhQAAUd4-1TLf20eL-RNW2IMjIwrhxlXtF2e0L27Mg"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Heritage Flat White</h3>
+<span class="text-tertiary font-bold text-lg">$5.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 line-clamp-2">Double shot of our signature house blend with velvety micro-foam milk.</p>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center border border-outline-variant rounded-full p-1 bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-val font-bold px-4">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="bg-[#25D366] text-white font-label-md text-label-md px-6 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all shadow-md" onclick="orderWhatsApp('Heritage Flat White', this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Order on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="glass-card rounded-[24px] overflow-hidden group shadow-lg transition-transform duration-500 hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A close-up of a gourmet artisan sourdough sandwich with melted brie, sun-dried tomatoes, and fresh basil leaves. The sandwich is served on a minimalist beige plate in a bright, airy café setting. The lighting is warm and golden, emphasizing the crispy texture of the bread and the vibrant colors of the fresh ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPvMA9lV-dQc8rVQrers8s_B_VVeFB0Lns6qYf6DyMOUv7PsqIxCn5g7x6QWLlrr67-cCPrtSkOqqmHcqChMIP5k4baGI-kmPYp8ix9y8U7-NH89MdacEYc2yKyvV9iD4eEIBWLa3rm0_52yZvIyEhMT2m6_peWEitL6y1KABCk6-Tme033dFe2rJJH80Sh-eg0E8spBv0UDXaLOCX2igJ6Y0Viw9Bbo-e6z69up1uWS-K-0VzdRmgSg"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Tuscan Sourdough</h3>
+<span class="text-tertiary font-bold text-lg">$14.00</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 line-clamp-2">Artisan bread with heirloom tomatoes, mozzarella, and house-made pesto.</p>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center border border-outline-variant rounded-full p-1 bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-val font-bold px-4">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="bg-[#25D366] text-white font-label-md text-label-md px-6 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all shadow-md" onclick="orderWhatsApp('Tuscan Sourdough', this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Order on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="glass-card rounded-[24px] overflow-hidden group shadow-lg transition-transform duration-500 hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A decadent dark chocolate lava cake dusting with powdered sugar and a single red raspberry on top. The cake is oozing rich warm chocolate sauce. The background is a sophisticated dark brown café interior with warm bokeh lighting. The photography style is high-end editorial, focusing on texture and the contrast between dark chocolate and the cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMhE-iM_ZgQS9x6NYHxJDgdLhd8h86VAMo08PHE90az2NOxSl-MPqHtK20MATvUnLUIdtscTlLYawDLaW3KMKbQ_F-f1KvbKUbsq_xgbN_m0HmDALbwacdtFjp-lAmYINdYhYCVLV-Zm4JgJtNTRq647mxQBfi5uGfp_46K6UyXB-K6JOJLFiM2EWxL4G369N3450TGp9t0VrGJtRH_RpPt8_6J-Y2-11paqzTKUaBC0CxQyOKPu3h1A"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Midnight Fondant</h3>
+<span class="text-tertiary font-bold text-lg">$9.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 line-clamp-2">70% dark Belgian chocolate molten cake with fresh berries and cream.</p>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center border border-outline-variant rounded-full p-1 bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-val font-bold px-4">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="bg-[#25D366] text-white font-label-md text-label-md px-6 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all shadow-md" onclick="orderWhatsApp('Midnight Fondant', this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Order on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="glass-card rounded-[24px] overflow-hidden group shadow-lg transition-transform duration-500 hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A rustic wood-fired pizza with fresh buffalo mozzarella, vibrant basil leaves, and artisanal pepperoni. The crust is perfectly charred and airy. Set on a wooden peel against a warm, stone-textured café wall. Bright natural light creates a fresh, premium appetizing look with warm golden and red tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdQubuhL8EnN58zGSVnx9hihtueuivkDNOrRbwF9ZEOBnkoV5zcXYtDClYaRXTlOdzsgJIUS3F_-Mxq_5UwW8E_-eCoQBsBxBqI8eee_NUj3CBIofVLn2RjjeFa1A3O5qDCTm-nqQ5OuCOT0T9Kvd-NKKt9aRxeiU-_oI5u15woN-QDNj7tzRQfasy0luJjZgRox5z6J0kbhbBbo6hQqosemBNyzNH7OItTlZ--igEUVmu4_XDHRTElw"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Artisan Pepperoni</h3>
+<span class="text-tertiary font-bold text-lg">$18.00</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 line-clamp-2">Hand-stretched dough, 24-hour ferment, spicy pepperoni, and buffalo mozzarella.</p>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center border border-outline-variant rounded-full p-1 bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-val font-bold px-4">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="bg-[#25D366] text-white font-label-md text-label-md px-6 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all shadow-md" onclick="orderWhatsApp('Artisan Pepperoni', this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Order on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="glass-card rounded-[24px] overflow-hidden group shadow-lg transition-transform duration-500 hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A vibrant bowl of creamy pesto pasta topped with toasted pine nuts and shaved parmesan cheese. The pasta is perfectly twirled on a minimalist cream-colored plate. Soft light accentuates the rich green color of the pesto and the delicate texture of the cheese, set in a luxurious, modern bistro environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeqsl8m_q6IKnOxmrYy2IHeEMQ7GIgyr7jXyD80JlnpKUGekpUkEV0Zprtd9DqlQ2fG-r3wGjGhe_aMb-ZdP0skr0G0Pnc8jaduiIQeJQNDDk6gCcJq31O37x-_4aKNhphzVVTlfU9eMaNG9YubSGDGD5GPEjBkCtKdL6agCY6KNRRGzPwy3c321bcGNJc-Kua1Vk96gm0urhbDvg48zj-_rVMPofmhaKJPhlmpoQZVViVilMCJXNM6g"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">Pesto Penne</h3>
+<span class="text-tertiary font-bold text-lg">$16.50</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 line-clamp-2">Fresh basil pesto, toasted pine nuts, and aged parmesan over al dente penne.</p>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center border border-outline-variant rounded-full p-1 bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-val font-bold px-4">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="bg-[#25D366] text-white font-label-md text-label-md px-6 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all shadow-md" onclick="orderWhatsApp('Pesto Penne', this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Order on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="glass-card rounded-[24px] overflow-hidden group shadow-lg transition-transform duration-500 hover:-translate-y-2">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A tall glass of layered iced tea with fresh peach slices and sprigs of mint. The glass is sweating with cold condensation. The setting is a sun-drenched café terrace with a light cream color palette. The light is bright and airy, making the drink look incredibly refreshing and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBArKukzLnChrLOYaAIoEHAlKttgEhxaW2XUPBLITy_6S3_vYaofyiltupGfZOb95uahNmHzzNoDskHhU5EAmUsV372y7NHMJqEhBNoYD2dlYz3Gmxi0Rf6u9Byth_l4oqtaVV1xbbKFe48mNQd21ua-x7TWQ3Zgjo4bcRN8OZAwVEM2jrw1LIB4QtYeMdM-3fsAY8A1P4-FNnu0w84dFI_P7xsrN1yvyOLnvc-C-1PI9ynsDLK4LWoig"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-primary">White Peach Tea</h3>
+<span class="text-tertiary font-bold text-lg">$6.00</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8 line-clamp-2">Cold-brewed white tea infused with fresh white peach and organic mint.</p>
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center border border-outline-variant rounded-full p-1 bg-surface">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, -1)"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="qty-val font-bold px-4">1</span>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high transition-colors" onclick="changeQty(this, 1)"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="bg-[#25D366] text-white font-label-md text-label-md px-6 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all shadow-md" onclick="orderWhatsApp('White Peach Tea', this)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Order on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-surface-container-lowest w-full py-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<h2 class="font-display-lg text-headline-md text-primary-fixed dark:text-primary mb-4">Cafe Mastié</h2>
+<p class="text-primary-fixed-dim/80 font-body-md text-body-md">The pursuit of the perfect roast, since 1994. Elevating everyday moments with artisanal craft.</p>
+</div>
+<div>
+<h4 class="text-tertiary-fixed font-bold mb-4 font-label-md text-label-md uppercase tracking-widest">Connect</h4>
+<ul class="space-y-2">
+<li><a class="text-primary-fixed-dim/80 hover:text-tertiary-fixed transition-colors" href="#">Instagram</a></li>
+<li><a class="text-primary-fixed-dim/80 hover:text-tertiary-fixed transition-colors" href="#">Facebook</a></li>
+<li><a class="text-primary-fixed-dim/80 hover:text-tertiary-fixed transition-colors" href="#">WhatsApp</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-tertiary-fixed font-bold mb-4 font-label-md text-label-md uppercase tracking-widest">Store</h4>
+<ul class="space-y-2">
+<li><p class="text-primary-fixed-dim/80">Opening Hours: 08:00 - 22:00</p></li>
+<li><p class="text-primary-fixed-dim/80">Address: Saheed Nagar, Bhubaneswar, Odisha</p></li>
+<li><p class="text-primary-fixed-dim/80">Phone: N/A</p></li>
+</ul>
+</div>
+<div class="flex flex-col items-start md:items-end">
+<p class="text-primary-fixed-dim/80 font-body-md text-body-md text-right">© 2024 Cafe Mastié. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp FAB -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 z-[100]" onclick="window.location.href='https://wa.me/1234567890'">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-error"></span>
+</span>
+</button>
+<script>
+        function changeQty(btn, delta) {
+            const qtySpan = btn.parentElement.querySelector('.qty-val');
+            let currentVal = parseInt(qtySpan.innerText);
+            currentVal = Math.max(1, currentVal + delta);
+            qtySpan.innerText = currentVal;
+        }
+
+        function orderWhatsApp(productName, btn) {
+            const qty = btn.parentElement.querySelector('.qty-val').innerText;
+            const message = `Hello! I would like to order: ${productName}, Quantity: ${qty}. Please share the total amount and estimated delivery time.`;
+            const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+            
+            // Visual feedback before "redirecting"
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Redirecting...`;
+            btn.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                btn.innerHTML = `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span> Order on WhatsApp`;
+                btn.classList.remove('opacity-80');
+            }, 800);
+        }
+
+        // Simple smooth scrolling for category nav
+        const scrollContainer = document.querySelector('.category-scroll');
+        scrollContainer.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+    </script>
+</body></html>
+
+
