@@ -1,305 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doppio Coffee & Bistro - Specialty Coffee & Cafe in Patia / Infocity, Bhubaneswar</title>
-  <meta name="description" content="Doppio Coffee & Bistro is a premium Specialty Coffee & Cafe located in Patia / Infocity, Bhubaneswar. Visit us for an unforgettable cafe experience.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #14b8a6;
-      --bg: #f0fdfa;
-      --card: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --accent2: #5eead4;
-      --shadow: rgba(20,184,166,0.15);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-    h1, h2, h3 { font-family: 'Inter', serif; }
-    
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 18px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-      backdrop-filter: blur(12px);
-      background: rgba(0,0,0,0.15);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-brand { font-family: 'Inter', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-    .nav-links a { color: #fff; text-decoration: none; margin-left: 28px; font-size: 0.95rem; opacity: 0.85; transition: opacity 0.3s; }
-    .nav-links a:hover { opacity: 1; color: var(--primary); }
-    
-    /* HERO */
-    header {
-      height: 100vh;
-      background: linear-gradient(rgba(15,23,42,0.55),rgba(15,23,42,0.88)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format') no-repeat center center/cover;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 20px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--bg);
-      padding: 6px 18px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    header h1 {
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 16px;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      letter-spacing: -1px;
-    }
-    header p.tagline {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: rgba(255,255,255,0.8);
-      max-width: 600px;
-      margin-bottom: 36px;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--bg);
-      padding: 15px 36px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 24px var(--shadow);
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 32px var(--shadow); filter: brightness(1.1); }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      margin-left: 14px;
-    }
-    .btn-outline:hover { background: var(--primary); color: var(--bg); }
-    
-    /* SECTIONS */
-    .section { max-width: 1100px; margin: 100px auto; padding: 0 24px; }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: var(--muted);
-      max-width: 550px;
-      margin: 0 auto 50px;
-      font-size: 1.05rem;
-    }
-    
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-      direction: rtl;
-    }
-    .about-grid > * { direction: ltr; }
-    .about-img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
-    .about-text h3 {
-      font-size: 1.6rem;
-      margin-bottom: 16px;
-      color: var(--primary);
-    }
-    .about-text p { color: var(--muted); font-size: 1.05rem; margin-bottom: 24px; }
-    .about-stats {
-      display: flex; gap: 30px; margin-top: 20px;
-    }
-    .stat { text-align: center; }
-    .stat-num { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
-    .stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    
-    /* FEATURES */
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
-    .feature-card {
-      background: var(--card);
-      padding: 32px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.08);
-      transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent2));
-      transform: scaleX(0);
-      transition: transform 0.35s ease;
-    }
-    .feature-card:hover::before { transform: scaleX(1); }
-    .feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow); }
-    .feature-card h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 10px; }
-    .feature-card p { color: var(--muted); font-size: 0.95rem; }
-    
-    /* MAP & CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
-    .contact-card {
-      background: var(--card);
-      padding: 28px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.08);
-      text-align: center;
-    }
-    .contact-card h4 { color: var(--primary); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; }
-    .contact-card p { font-size: 1.05rem; }
-    .contact-card a { color: var(--primary); text-decoration: none; }
-    .map-wrap {
-      width: 100%;
-      height: 380px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    
-    /* CTA */
-    .cta-section {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, var(--card), var(--bg));
-      border-radius: 12px;
-      margin: 80px auto;
-      max-width: 1100px;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .cta-section h2 { font-size: 2rem; margin-bottom: 16px; }
-    .cta-section p { color: var(--muted); margin-bottom: 30px; font-size: 1.05rem; }
-    
-    /* FOOTER */
-    footer {
-      background: #0d9488;
-      padding: 40px 24px;
-      text-align: center;
-      color: #f5f5f4;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(0,0,0,0.08);
-    }
-    footer a { color: var(--primary); text-decoration: none; }
-    
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-grid { direction: rtl; direction: ltr; }
-      nav { padding: 14px 20px; }
-      .nav-links { display: none; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a href="#" class="nav-brand">Doppio Coffee & Bistro</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#specials">Specials</a>
-      <a href="#contact">Find Us</a>
-    </div>
-  </nav>
-
-  <header>
-    <span class="badge">Specialty Coffee & Cafe</span>
-    <h1>Doppio Coffee & Bistro</h1>
-    <p class="tagline">Your favourite destination for premium cafe experiences in Patia / Infocity, Bhubaneswar</p>
-    <div>
-      <a href="https://wa.me/=Hi!%20I%20saw%20the%20website%20demo%20for%20Doppio%20Coffee%20%26%20Bistro%20and%20would%20love%20to%20connect." class="btn" target="_blank">Book a Table</a>
-      <a href="#contact" class="btn btn-outline">Find Us</a>
-    </div>
-  </header>
-
-  <section class="section" id="about">
-    <div class="about-grid">
-      <div class="about-text">
-        <h3>Welcome to Doppio Coffee & Bistro</h3>
-        <p>Step into Doppio Coffee & Bistro and discover a world of flavors, comfort, and community in the heart of Patia / Infocity. We are more than just a cafe; we are a destination where every visit tells a story.</p>
-        <p>Whether you are catching up with friends, powering through work, or simply enjoying a quiet moment, our space is designed to make you feel right at home.</p>
-        <div class="about-stats">
-          <div class="stat"><div class="stat-num">4.5</div><div class="stat-label">Rating</div></div>
-          <div class="stat"><div class="stat-num">Patia / Infocity</div><div class="stat-label">Location</div></div>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format" alt="Inside Doppio Coffee & Bistro" class="about-img">
-    </div>
-  </section>
-
-  <section class="section" id="specials">
-    <h2 class="section-title">What Makes Us Special</h2>
-    <p class="section-subtitle">Every detail at Doppio Coffee & Bistro is crafted to deliver an exceptional experience.</p>
-    <div class="features">
-      <div class="feature-card">
-        <h3>&#9749; Handcrafted Brews</h3>
-        <p>Sourced from top-tier coffee bean estates, roasted to perfection.</p>
-      </div>
-      <div class="feature-card">
-        <h3>&#127856; Fresh Bakery Items</h3>
-        <p>Delicious handmade desserts and pastries prepared fresh daily.</p>
-      </div>
-      <div class="feature-card">
-        <h3>&#10024; Cozy Atmosphere</h3>
-        <p>A warm, inviting space perfect for work, study, or hanging out.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-section">
-    <h2>Ready to Visit?</h2>
-    <p>Reserve your table today and experience Doppio Coffee & Bistro for yourself.</p>
-    <a href="https://wa.me/=Hi!%20I%20saw%20the%20website%20demo%20for%20Doppio%20Coffee%20%26%20Bistro%20and%20would%20love%20to%20connect." class="btn" target="_blank">WhatsApp Reservation</a>
-  </div>
-
-  <section class="section" id="contact">
-    <h2 class="section-title">Find Us</h2>
-    <p class="section-subtitle">We would love to see you. Here is how to reach us.</p>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h4>ðŸ“ Address</h4>
-        <p>Plot 3, Infocity Main Road, Patia, Bhubaneswar - 751024</p>
-      </div>
-      <div class="contact-card">
-        <h4>ðŸ“ž Phone</h4>
-        <p><a href="tel:+91 74400 24446">+91 74400 24446</a></p>
-      </div>
-    </div>
-    <div class="map-wrap">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0"
-        src="https://maps.google.com/maps?q=Doppio%20Coffee%20%26%20Bistro%2C%20Patia%20%2F%20Infocity%2C%20Bhubaneswar&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        allowfullscreen loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2026 Doppio Coffee & Bistro &middot; Patia / Infocity, Bhubaneswar &middot; Crafted by <a href="https://boostrnetwave.com" target="_blank">BoostrNetWave</a></p>
-  </footer>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Doppio Coffee & Bistro - Specialty Coffee & Cafe in Patia / Infocity</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'',sans-serif;background:#0c0a09;color:#f5f5f4;line-height:1.7}
+h1,h2,h3{font-family:'',serif}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:60px 50px;background:#0c0a09}
+.hero-text .badge{display:inline-block;width:fit-content;background:#c89666;color:#0c0a09;padding:5px 16px;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.hero-text h1{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px;line-height:1.1}
+.hero-text p{color:#a8a29e;font-size:1.1rem;margin-bottom:30px;max-width:450px}
+.hero-img{background:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1000&q=80') center/cover}
+.btn{display:inline-block;background:#c89666;color:#0c0a09;padding:14px 34px;border-radius:8px;text-decoration:none;font-weight:600;transition:all .3s}.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.btn-ghost{background:transparent;border:2px solid #c89666;color:#c89666;margin-left:10px}.btn-ghost:hover{background:#c89666;color:#0c0a09}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#1c1917;border-bottom:1px solid rgba(255,255,255,0.06)}
+.stat{padding:30px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+.stat-n{font-size:1.8rem;font-weight:800;color:#c89666}.stat-l{font-size:.8rem;color:#a8a29e;text-transform:uppercase;letter-spacing:1px}
+.sec{max-width:1100px;margin:80px auto;padding:0 24px}
+.sec-t{font-size:2rem;font-weight:800;margin-bottom:40px}
+.feat-list{display:flex;flex-direction:column;gap:20px}
+.feat-item{display:flex;gap:20px;padding:24px;background:#1c1917;border-radius:12px;border:1px solid rgba(255,255,255,0.06);transition:all .3s}
+.feat-item:hover{transform:translateX(8px);border-color:#c89666}
+.feat-icon{font-size:2rem;min-width:50px;text-align:center}
+.feat-item h3{color:#c89666;font-size:1.1rem;margin-bottom:4px}.feat-item p{color:#a8a29e;font-size:.9rem}
+.img-break{width:100%;height:350px;object-fit:cover}
+.contact-bar{display:grid;grid-template-columns:1fr 1fr 1fr;background:#1c1917;border:1px solid rgba(255,255,255,0.06);border-radius:16px;overflow:hidden;margin-bottom:30px}
+.cb-item{padding:28px;text-align:center;border-right:1px solid rgba(255,255,255,0.06)}
+.cb-item:last-child{border:none}
+.cb-item h4{color:#c89666;font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+.cb-item a{color:#c89666;text-decoration:none}
+.map{width:100%;height:350px;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+footer{background:#000;padding:36px 20px;text-align:center;color:#a8a29e;font-size:.85rem}footer a{color:#c89666;text-decoration:none}
+@media(max-width:768px){.hero,.contact-bar{grid-template-columns:1fr}.hero-text{padding:40px 24px}.stats{grid-template-columns:1fr}}
+</style></head><body>
+<div class="hero"><div class="hero-text"><span class="badge">Specialty Coffee & Cafe</span><h1>Doppio Coffee & Bistro</h1><p>Your favourite destination for premium cafe experiences in Patia / Infocity, Bhubaneswar.</p><div><a href="https://wa.me/=Hi!%20I%20saw%20the%20demo%20website%20for%20Doppio%20Coffee%20%26%20Bistro." class="btn" target="_blank">Book a Table</a><a href="#contact" class="btn btn-ghost">Location</a></div></div><div class="hero-img"></div></div>
+<div class="stats"><div class="stat"><div class="stat-n">4.5</div><div class="stat-l">Rating</div></div><div class="stat"><div class="stat-n">Patia / Infocity</div><div class="stat-l">Location</div></div><div class="stat"><div class="stat-n">Specialty Coffee & Cafe</div><div class="stat-l">Category</div></div></div>
+<section class="sec"><h2 class="sec-t">Why Choose Doppio Coffee & Bistro</h2><div class="feat-list"><div class="feat-item"><div class="feat-icon">&#9749;</div><div><h3>Premium Quality</h3><p>Only the finest ingredients sourced from trusted suppliers across India and beyond.</p></div></div><div class="feat-item"><div class="feat-icon">&#127856;</div><div><h3>Made Fresh Daily</h3><p>Everything prepared fresh each morning by our talented and passionate kitchen team.</p></div></div><div class="feat-item"><div class="feat-icon">&#10024;</div><div><h3>Perfect Atmosphere</h3><p>A beautifully designed space that feels like home for work, dates, or hangouts.</p></div></div></div></section>
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1400&q=80" alt="Doppio Coffee & Bistro" class="img-break">
+<section class="sec" id="contact"><h2 class="sec-t">Visit Us Today</h2><div class="contact-bar"><div class="cb-item"><h4>Address</h4><p>Plot 3, Infocity Main Road, Patia, Bhubaneswar - 751024</p></div><div class="cb-item"><h4>Phone</h4><p><a href="tel:+91 74400 24446">+91 74400 24446</a></p></div><div class="cb-item"><h4>Reserve</h4><p><a href="https://wa.me/=Hi!%20I%20saw%20the%20demo%20website%20for%20Doppio%20Coffee%20%26%20Bistro." target="_blank">WhatsApp Us</a></p></div></div><div class="map"><iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://maps.google.com/maps?q=Doppio%20Coffee%20%26%20Bistro%2C%20Patia%20%2F%20Infocity%2C%20Bhubaneswar&z=15&output=embed" allowfullscreen loading="lazy"></iframe></div></section>
+<footer><p>&copy; 2026 Doppio Coffee & Bistro &middot; Patia / Infocity, Bhubaneswar &middot; Built by <a href="https://boostrnetwave.com" target="_blank">BoostrNetWave</a></p></footer>
+</body></html>
