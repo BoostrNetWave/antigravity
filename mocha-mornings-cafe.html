@@ -1,75 +1,244 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Mocha Mornings Cafe - Premium Cafe in Patia / KIIT Road</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --pr: #06b6d4; --bg: #ffffff; --cd: rgba(255,255,255,0.7); --tx: #0f172a; --mt: #475569;
-  --fn: 'Orbitron'; --fb: 'Outfit'; --border: rgba(0,0,0,0.08);
-  --grad: linear-gradient(135deg, #ffffff 0%, #ecfeff 100%); --glow: 0 15px 35px rgba(0,0,0,0.06);
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mocha Mornings Cafe | Every Cup Tells a Story</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "primary-fixed": "#ffdad4", "error-container": "#ffdad6", "on-tertiary-container": "#4f3d00",
+        "on-background": "#1b1d0e", "surface-container-lowest": "#ffffff", "on-primary-container": "#ae8d87",
+        "secondary-fixed": "#ffdcc6", "tertiary": "#755b00", "on-error-container": "#93000a",
+        "on-error": "#ffffff", "on-primary": "#ffffff", "on-tertiary": "#ffffff",
+        "inverse-surface": "#303221", "primary-container": "#3e2723", "secondary-fixed-dim": "#eabda0",
+        "outline": "#827472", "inverse-on-surface": "#f2f2d9", "surface-container-highest": "#e4e4cc",
+        "surface-container": "#efefd7", "on-primary-fixed": "#2b1613", "secondary": "#79573f",
+        "on-surface": "#1b1d0e", "surface-container-high": "#eaead1", "primary-fixed-dim": "#e3beb8",
+        "on-secondary-fixed": "#2d1604", "on-surface-variant": "#504442", "background": "#fbfbe2",
+        "tertiary-container": "#cea72c", "on-secondary-fixed-variant": "#5f402a", "tertiary-fixed-dim": "#ecc246",
+        "on-tertiary-fixed": "#241a00", "on-secondary-container": "#7a5840", "surface": "#fbfbe2",
+        "tertiary-fixed": "#ffe08e", "primary": "#271310", "inverse-primary": "#e3beb8",
+        "outline-variant": "#d3c3c0", "surface-tint": "#745853", "error": "#ba1a1a",
+        "on-primary-fixed-variant": "#5b403c", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#584400",
+        "surface-variant": "#e4e4cc", "surface-container-low": "#f5f5dc", "surface-dim": "#dbdcc3",
+        "surface-bright": "#fbfbe2", "secondary-container": "#ffd1b3"
+      },
+      "fontFamily": {
+        "display-lg": ["Playfair Display"], "display-lg-mobile": ["Playfair Display"], "headline-lg": ["Playfair Display"],
+        "body-md": ["Poppins"], "label-md": ["Poppins"], "body-lg": ["Poppins"], "headline-md": ["Playfair Display"]
+      }
+    }
+  }
 }
-body{font-family:var(--fb),sans-serif;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--grad);background-attachment:fixed;color:var(--tx);line-height:1.7}
-h1,h2,h3{font-family:var(--fn),serif}
-.glass{background:var(--cd);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--border);box-shadow:var(--glow)}
-.btn{display:inline-block;background:var(--pr);color:var(--bg);padding:14px 34px;border-radius:50px;text-decoration:none;font-weight:600;transition:all .3s;box-shadow:var(--glow);border:none;cursor:pointer}
-.btn:hover{transform:translateY(-3px);filter:brightness(1.1)}
-.sec{max-width:1200px;margin:100px auto;padding:0 24px}
-.sec-t{font-size:2.5rem;font-weight:800;margin-bottom:14px;color:var(--pr)}
-.sec-s{color:var(--mt);font-size:1.1rem;margin-bottom:50px}
-/* V4 Contact Form UI */
-.c-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-radius:24px;overflow:hidden}
-.c-info{padding:50px}
-.c-map iframe{width:100%;height:100%;min-height:500px;border:none}
-.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:30px}
-.c-item{color:var(--tx)} .c-item span{color:var(--pr);font-weight:bold;display:block;margin-bottom:4px}
-.form-input{width:100%;padding:14px 20px;margin-bottom:16px;border-radius:12px;border:1px solid rgba(150,150,150,0.3);background:rgba(0,0,0,0.1);color:var(--tx);font-family:inherit;font-size:1rem;transition:all 0.3s}
-.form-input:focus{outline:none;border-color:var(--pr);background:rgba(0,0,0,0.2)}
-/* V4 Gallery Masonry */
-.gal-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:20px;padding:20px 0}
-.gal-grid img{width:100%;height:300px;object-fit:cover;border-radius:16px;transition:transform .4s;box-shadow:var(--glow)}
-.gal-grid img:hover{transform:scale(1.03);z-index:10}
-@media(max-width:768px){.c-wrap{grid-template-columns:1fr}}
-</style></head><body>  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:100vh">
-    <div style="display:flex;flex-direction:column;justify-content:center;padding:60px;background:var(--grad)">
-      <span style="display:inline-block;padding:6px 16px;border-radius:50px;background:var(--pr);color:var(--bg);font-weight:bold;width:max-content;margin-bottom:20px;text-transform:uppercase">Specialty Coffee & Brunch</span>
-      <h1 style="font-size:clamp(3rem,6vw,4.5rem);line-height:1.1;margin-bottom:20px">Mocha Mornings Cafe</h1>
-      <p style="font-size:1.2rem;color:var(--mt);margin-bottom:40px;max-width:500px">Elevating the cafe experience in Patia / KIIT Road with premium brews, fresh food, and an unforgettable atmosphere.</p>
-      <div style="display:flex;gap:16px"><a href="#menu" class="btn">View Menu</a><a href="#" target="_blank" class="btn" style="background:transparent;border:2px solid var(--pr);color:var(--pr)">Contact Us</a></div>
-    </div>
-    <div style="background:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80') center/cover;box-shadow:inset 100px 0 100px var(--bg)"></div>
+</script>
+<style>
+.glass-nav { background: rgba(251, 251, 226, 0.8); backdrop-filter: blur(24px); }
+.hero-gradient { background: linear-gradient(to bottom, rgba(39, 19, 16, 0.4), rgba(39, 19, 16, 0.7)); }
+.hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hover-lift:hover { transform: translateY(-8px); box-shadow: 0px 12px 32px rgba(62, 39, 35, 0.08); }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-tertiary-fixed-dim selection:text-on-tertiary-fixed">
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-tertiary/10 shadow-sm">
+  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+    <h1 class="font-display-lg text-2xl md:text-3xl text-primary tracking-tight">Mocha Mornings Cafe</h1>
+    <nav class="hidden md:flex gap-8">
+      <a class="font-label-md text-sm text-tertiary font-bold border-b-2 border-tertiary pb-1" href="#">Home</a>
+      <a class="font-label-md text-sm text-on-surface-variant font-medium hover:text-tertiary" href="#">About Us</a>
+      <a class="font-label-md text-sm text-on-surface-variant font-medium hover:text-tertiary" href="#">Menu</a>
+    </nav>
+    <a href="#" target="_blank" class="bg-tertiary-container hover:bg-primary-container text-on-tertiary-container hover:text-white px-6 py-2 rounded-full font-label-md transition-all duration-300 shadow-md">
+      Contact Us
+    </a>
   </div>
+</header>
 
-  <section class="sec" style="background:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600&q=80') center/cover fixed;padding:120px 24px;border-radius:30px;box-shadow:var(--glow);margin-top:80px">
-    <div class="glass" style="max-width:600px;padding:50px;border-radius:24px;margin-left:auto">
-      <h2 class="sec-t" style="margin-bottom:20px">The Mocha Mornings Cafe Vision</h2>
-      <p style="color:var(--tx);font-size:1.1rem;margin-bottom:20px;line-height:1.8">We built Mocha Mornings Cafe not just to serve food, but to build a community in Patia / KIIT Road. Our space is designed to be your second home â€” whether you are here for a morning espresso or a late-night dinner.</p>
-      <p style="color:var(--tx);font-size:1.1rem;font-weight:600;font-style:italic">"Great taste wrapped in great hospitality."</p>
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80')"></div>
+  <div class="absolute inset-0 hero-gradient"></div>
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <h2 class="font-display-lg text-4xl md:text-6xl text-white mb-6 leading-tight">Every Cup <span class="italic font-normal">Tells a Story</span></h2>
+    <p class="font-body-lg text-lg text-white/90 mb-10 max-w-2xl mx-auto">Freshly brewed coffee, handcrafted beverages, delicious meals, and unforgettable moments in the heart of Patia / KIIT Road.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#" target="_blank" class="bg-tertiary-container text-on-tertiary-container hover:bg-white hover:text-primary px-10 py-4 rounded-full font-label-md text-lg transition-all duration-300 shadow-xl">WhatsApp Us</a>
+      <a href="#menu" class="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-4 rounded-full font-label-md text-lg transition-all duration-300">View Menu</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="sec">
-    <h2 class="sec-t" style="text-align:center">Captured Moments</h2>
-    <div class="gal-grid">
-      <img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?w=600&q=80"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&q=80"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80">
+<section id="menu" class="py-20 bg-surface px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="text-tertiary font-label-md tracking-widest uppercase mb-4 block">Our Specialties</span>
+      <h2 class="font-display-lg text-4xl text-primary">Curated Selections</h2>
     </div>
-  </section>
-
-  <section class="sec">
-    <div class="glass c-wrap">
-      <div class="c-map" style="border-right:1px solid var(--border)"><iframe src="https://maps.google.com/maps?q=Mocha%20Mornings%20Cafe%2C%20Patia%20%2F%20KIIT%20Road%2C%20Bhubaneswar&z=15&output=embed"></iframe></div>
-      <div class="c-info">
-        <h2 class="sec-t">Get In Touch</h2>
-        <div class="c-grid" style="margin-bottom:40px">
-          <div class="c-item"><span>&#128205; Location</span>KIIT Road, Patia, Bhubaneswar - 751024</div>
-          <div class="c-item"><span>&#128222; Contact</span>N/A</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+        <div class="h-48 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&q=80"/>
+          <div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">.50</div>
         </div>
-        <form onsubmit="event.preventDefault(); window.open('#', '_blank');">
-          <input type="text" placeholder="Full Name" class="form-input" required>
-          <textarea placeholder="How can we help you today?" rows="4" class="form-input" required></textarea>
-          <button type="submit" class="btn" style="width:100%">Send Inquiry</button>
-        </form>
+        <div class="p-6">
+          <h3 class="font-headline-md text-lg mb-2 text-primary">Signature Roast</h3>
+          <p class="text-on-surface-variant text-sm line-clamp-2">Ethiopian beans with notes of jasmine and citrus.</p>
+        </div>
+      </div>
+      <div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+        <div class="h-48 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=600&q=80"/>
+          <div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">.95</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-lg mb-2 text-primary">Artisan Tea</h3>
+          <p class="text-on-surface-variant text-sm line-clamp-2">Hand-picked loose leaf tea from the misty hills.</p>
+        </div>
+      </div>
+      <div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+        <div class="h-48 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?w=600&q=80"/>
+          <div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">.00</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-lg mb-2 text-primary">Club Panini</h3>
+          <p class="text-on-surface-variant text-sm line-clamp-2">Sourdough bread with smoked turkey and pesto.</p>
+        </div>
+      </div>
+      <div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+        <div class="h-48 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=80"/>
+          <div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">.50</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-lg mb-2 text-primary">Truffle Pizza</h3>
+          <p class="text-on-surface-variant text-sm line-clamp-2">Wild mushrooms, truffle oil, and fresh rocket.</p>
+        </div>
+      </div>
+      <div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+        <div class="h-48 overflow-hidden relative">
+          <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?w=600&q=80"/>
+          <div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">.00</div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-headline-md text-lg mb-2 text-primary">Lava Cake</h3>
+          <p class="text-on-surface-variant text-sm line-clamp-2">70% dark cocoa with a molten warm center.</p>
+        </div>
       </div>
     </div>
-  </section>
-  <footer style="text-align:center;padding:40px;color:var(--mt)">&copy; 2026 Mocha Mornings Cafe &middot; Built by BoostrNetWave</footer></body></html>
+  </div>
+</section>
+
+<section class="py-20 bg-surface-container-low px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="font-display-lg text-4xl text-primary mb-4">Why Choose Us</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">Crafting moments of joy in Patia / KIIT Road, one cup at a time.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+        <div class="bg-tertiary/10 p-4 rounded-2xl"><span class="material-symbols-outlined text-tertiary text-3xl">eco</span></div>
+        <div>
+          <h4 class="font-headline-md text-xl mb-2">Premium Beans</h4>
+          <p class="text-on-surface-variant text-sm">Directly sourced ethical beans roasted daily in-house.</p>
+        </div>
+      </div>
+      <div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+        <div class="bg-tertiary/10 p-4 rounded-2xl"><span class="material-symbols-outlined text-tertiary text-3xl">restaurant</span></div>
+        <div>
+          <h4 class="font-headline-md text-xl mb-2">Fresh Ingredients</h4>
+          <p class="text-on-surface-variant text-sm">Organic produce and artisan breads delivered every morning.</p>
+        </div>
+      </div>
+      <div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+        <div class="bg-tertiary/10 p-4 rounded-2xl"><span class="material-symbols-outlined text-tertiary text-3xl">living</span></div>
+        <div>
+          <h4 class="font-headline-md text-xl mb-2">Cozy Ambience</h4>
+          <p class="text-on-surface-variant text-sm">Thoughtfully designed spaces for work or relaxation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-surface px-6 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px bg-tertiary/20 flex-grow"></div>
+      <h2 class="font-display-lg text-4xl text-primary text-center px-4">Today's Special</h2>
+      <div class="h-px bg-tertiary/20 flex-grow"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="relative group">
+        <div class="aspect-[4/5] rounded-[32px] overflow-hidden mb-6"><img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=800&q=80"/><div class="absolute top-6 left-6 bg-primary text-white font-label-md px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">Recommended</div></div>
+        <div class="text-center"><h3 class="font-headline-md text-2xl mb-2">Atlantic Brunch Bowl</h3><p class="text-on-surface-variant mb-4">Poached egg, smoked salmon, avocado, and microgreens.</p><span class="text-tertiary font-bold text-xl">.00</span></div>
+      </div>
+      <div class="relative group md:-translate-y-12">
+        <div class="aspect-[4/5] rounded-[32px] overflow-hidden mb-6 shadow-2xl"><img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80"/><div class="absolute top-6 left-6 bg-tertiary text-white font-label-md px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">Chef's Pick</div></div>
+        <div class="text-center"><h3 class="font-headline-md text-2xl mb-2">Honey Oak Cold Brew</h3><p class="text-on-surface-variant mb-4">Slow-steeped 24h cold brew with honey and creamy oat milk.</p><span class="text-tertiary font-bold text-xl">.50</span></div>
+      </div>
+      <div class="relative group">
+        <div class="aspect-[4/5] rounded-[32px] overflow-hidden mb-6"><img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"/><div class="absolute top-6 left-6 bg-primary text-white font-label-md px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">Limited</div></div>
+        <div class="text-center"><h3 class="font-headline-md text-2xl mb-2">Morning Pastry Trio</h3><p class="text-on-surface-variant mb-4">Buttery croissant, pain au chocolat, and fruit danish.</p><span class="text-tertiary font-bold text-xl">.00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-primary-container text-on-primary-container px-6 relative overflow-hidden">
+  <div class="max-w-4xl mx-auto relative z-10 text-center">
+    <span class="material-symbols-outlined text-5xl text-tertiary-fixed mb-6">format_quote</span>
+    <h2 class="font-display-lg text-4xl text-white mb-10">What Our Guests Say</h2>
+    <p class="font-headline-md text-2xl text-white/90 italic leading-relaxed mb-10 max-w-2xl mx-auto">"The best coffee experience in Patia / KIIT Road. The attention to detail in every pour and the warm, inviting atmosphere make it my favorite morning ritual."</p>
+    <div class="flex flex-col items-center justify-center">
+      <img class="w-16 h-16 rounded-full border-2 border-tertiary-fixed object-cover mb-4" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80"/>
+      <h5 class="text-white font-bold">Sophia Martinez</h5>
+      <p class="text-white/60 text-sm mb-4">Local Guide â€¢ 154 Reviews</p>
+      <div class="flex gap-1 text-tertiary-fixed"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="px-6 mb-20 mt-20">
+  <div class="max-w-7xl mx-auto relative rounded-[48px] overflow-hidden py-24 text-center">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600&q=80')"></div>
+    <div class="absolute inset-0 bg-primary/60 backdrop-blur-[2px]"></div>
+    <div class="relative z-10 px-6">
+      <h2 class="font-display-lg text-5xl md:text-6xl text-white mb-8">Life Begins After Coffee.</h2>
+      <a href="#" target="_blank" class="inline-block bg-tertiary-container hover:bg-white text-on-tertiary-container hover:text-primary px-12 py-5 rounded-full font-label-md text-xl transition-all shadow-2xl active:scale-95">Contact Mocha Mornings Cafe</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-primary-container dark:bg-surface-container-lowest w-full py-20">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-6 max-w-7xl mx-auto">
+    <div class="col-span-1 md:col-span-2">
+      <h3 class="font-display-lg text-3xl text-primary-fixed mb-6">Mocha Mornings Cafe</h3>
+      <p class="text-primary-fixed-dim/80 font-body-md max-w-sm mb-8">Crafting premium coffee experiences and culinary delights. Join us in our journey of taste and discovery.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-6">Opening Hours</h4>
+      <ul class="space-y-4 text-primary-fixed-dim/80">
+        <li class="flex justify-between"><span>Mon - Fri:</span> <span>7:00 AM - 9:00 PM</span></li>
+        <li class="flex justify-between"><span>Saturday:</span> <span>8:00 AM - 10:00 PM</span></li>
+        <li class="flex justify-between"><span>Sunday:</span> <span>8:00 AM - 8:00 PM</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-6">Contact &amp; Visit</h4>
+      <address class="not-italic text-primary-fixed-dim/80 space-y-4">
+        <p class="flex items-start gap-2"><span class="material-symbols-outlined text-sm">location_on</span> KIIT Road, Patia, Bhubaneswar - 751024</p>
+        <p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span> N/A</p>
+      </address>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center">
+    <p class="text-primary-fixed-dim/60 font-body-md text-sm">Â© 2026 Mocha Mornings Cafe. All Rights Reserved. Built by BoostrNetWave.</p>
+  </div>
+</footer>
+</body></html>
