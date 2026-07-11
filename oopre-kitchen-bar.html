@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oopre Kitchen & Bar | Premium CafÃ© & Bistro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c89666;
+      --bg: #0c0a09;
+      --card: #1c1917;
+      --text: #f5f5f4;
+      --text-muted: #a8a29e;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      height: 90vh;
+      background: linear-gradient(rgba(12,10,9,0.7), rgba(12,10,9,0.9)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    header h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #fff;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #0c0a09;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(200, 150, 102, 0.2);
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(200, 150, 102, 0.4);
+      background: #dfb287;
+    }
+    .section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      margin: 15px auto 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+    .about-img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .feature-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(200, 150, 102, 0.3);
+    }
+    .feature-card h3 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    .contact-item {
+      text-align: center;
+      background: var(--card);
+      padding: 30px;
+      border-radius: 16px;
+    }
+    .contact-item h4 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #000;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header>
+    <h1>Oopre Kitchen & Bar</h1>
+    <p>Rooftop Cafe & Bar â€¢ Multiple Locations</p>
+    <a href="#" class="btn" target="_blank">Book a Table</a>
+  </header>
+
+  <!-- About Section -->
+  <section class="section">
+    <h2 class="section-title">Welcome to Oopre Kitchen & Bar</h2>
+    <div class="about-grid">
+      <div>
+        <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted);">Experience premium quality coffee, authentic snacks, and an unforgettable cozy vibe in the heart of Multiple Locations. Whether you are looking to work, hang out with friends, or enjoy some peaceful downtime, Oopre Kitchen & Bar is your perfect destination.</p>
+        <a href="#" class="btn" target="_blank">WhatsApp Reservation</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800" alt="Specialty Coffee" class="about-img">
+    </div>
+  </section>
+
+  <!-- Gallery/Features -->
+  <section class="section">
+    <h2 class="section-title">Our Specials</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>â˜• Handcrafted Brews</h3>
+        <p style="color: var(--text-muted);">Sourced from top-tier coffee bean estates in India, roasted to perfection.</p>
+      </div>
+      <div class="feature-card">
+        <h3>ðŸ° Fresh Bakery Items</h3>
+        <p style="color: var(--text-muted);">Delicious handmade desserts and pastries prepared fresh daily by our chefs.</p>
+      </div>
+      <div class="feature-card">
+        <h3>âœ¨ Work & Study Zone</h3>
+        <p style="color: var(--text-muted);">Equipped with high-speed WiFi, power outlets, and peaceful indoor seating.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
+  <section class="section">
+    <h2 class="section-title">Find Us</h2>
+    <div class="contact-info">
+      <div class="contact-item">
+        <h4>Address</h4>
+        <p>Multiple locations, Bhubaneswar, Odisha</p>
+      </div>
+      <div class="contact-item">
+        <h4>Contact Phone</h4>
+        <p>N/A</p>
+      </div>
+    </div>
+    
+    <div class="map-container">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        frameborder="0" 
+        style="border:0" 
+        src="https://maps.google.com/maps?q=Oopre%20Kitchen%20%26%20Bar%2C%20Multiple%20Locations%2C%20Bhubaneswar&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Â© 2026 Oopre Kitchen & Bar Bhubaneswar. Crafted beautifully.</p>
+  </footer>
+
+</body>
+</html>
