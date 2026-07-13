@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Demo Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #0ea5e9;
+            --primary-glow: rgba(14, 165, 233, 0.5);
+            --bg-color: #0f172a;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(14, 165, 233, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 3rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .business-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.address {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            display: inline-block;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+            color: var(--text-main);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--primary-glow);
+            background: #0284c7;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="biz-photo" class="hero-image" src="" alt="Business Photo">
+        <div class="business-tag" id="biz-category">Premium Clinic</div>
+        <h1 id="biz-name">Your Business Name</h1>
+        <p class="address">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span id="biz-address">123 Example Street, Sydney, NSW</span>
+        </p>
+
+        <div class="contact-card">
+            <div class="contact-item">📞 <span id="biz-phone">+61 000 000 000</span></div>
+            <div class="contact-item">⭐ <span id="biz-rating">4.8</span> / 5.0 Rating</div>
+        </div>
+
+        <a href="#" id="biz-cta" class="cta-button">Book an Appointment</a>
+        
+        <div class="footer">
+            <p>This is a custom-generated demo landing page designed specifically for your business.</p>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL Parameters
+        const params = new URLSearchParams(window.location.search);
+        
+        const bName = params.get('name');
+        const bAddress = params.get('address');
+        const bPhone = params.get('phone');
+        const bCategory = params.get('category');
+        const bRating = params.get('rating');
+        const bPhoto = params.get('photo');
+
+        // Populate Data
+        if (bName) {
+            document.getElementById('biz-name').textContent = bName;
+            document.title = bName + " | Demo";
+        }
+        if (bAddress) document.getElementById('biz-address').textContent = bAddress;
+        if (bPhone) document.getElementById('biz-phone').textContent = bPhone;
+        if (bCategory) document.getElementById('biz-category').textContent = bCategory;
+        if (bRating) {
+            document.getElementById('biz-rating').textContent = bRating;
+        } else {
+            document.getElementById('biz-rating').textContent = "5.0"; // Default
+        }
+
+        if (bPhoto) {
+            const img = document.getElementById('biz-photo');
+            img.src = bPhoto;
+            img.style.display = 'block';
+        } else {
+            // Default elegant background image if none provided
+            const img = document.getElementById('biz-photo');
+            img.src = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80";
+            img.style.display = 'block';
+        }
+
+        // WhatsApp CTA
+        if (bPhone) {
+            const cleanPhone = bPhone.replace(/[^0-9]/g, '');
+            document.getElementById('biz-cta').href = `https://wa.me/${cleanPhone}`;
+        }
+    </script>
+</body>
+</html>
