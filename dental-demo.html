@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic - Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #90e0ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-book {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-book:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 119, 182, 0.7), rgba(0, 119, 182, 0.7)), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            color: white;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
+            width: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: white;
+            padding: 5rem 5%;
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            max-width: 500px;
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .contact { flex-direction: column; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <span id="brand-name-logo">Dental Clinic</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="btn-book">Book Appointment</a>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="brand-name-hero">Your Smile, Our Priority</h1>
+            <p>Experience world-class dental care with our team of experts. We combine advanced technology with a gentle touch to give you the perfect smile.</p>
+            <a href="#contact" class="btn-book" style="display: inline-block; padding: 1rem 2rem; font-size: 1.1rem;">Get Started Today</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Premium Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>General Dentistry</h3>
+                <p>Comprehensive check-ups, cleanings, and preventive care to keep your smile healthy and bright year-round.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cosmetic Dentistry</h3>
+                <p>Teeth whitening, veneers, and complete smile makeovers tailored to enhance your natural beauty.</p>
+            </div>
+            <div class="service-card">
+                <h3>Orthodontics</h3>
+                <p>Clear aligners and modern braces solutions for straight teeth and a perfectly aligned bite.</p>
+            </div>
+            <div class="service-card">
+                <h3>Dental Implants</h3>
+                <p>Permanent, natural-looking tooth replacements that restore both function and aesthetics seamlessly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-info">
+            <h2>Get In Touch with <span id="brand-name-contact">Us</span></h2>
+            <p style="margin-bottom: 2rem; color: #555;">Ready to transform your smile? Reach out to us today to schedule your consultation.</p>
+            
+            <div class="info-item">
+                📍 <span id="address-display">123 Dental Avenue, Health City</span>
+            </div>
+            <div class="info-item">
+                📞 <span id="phone-display">+1 (555) 123-4567</span>
+            </div>
+            <div class="info-item">
+                ✉️ <span id="email-display">contact@dentalclinic.com</span>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Phone Number">
+                <textarea rows="4" placeholder="How can we help you?" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <span id="brand-name-footer">Dental Clinic</span>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Extract URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Get name parameter, default to 'Dental Clinic'
+        let businessName = urlParams.get('name');
+        if (!businessName) businessName = 'Premium Dental Care';
+        
+        // Get phone parameter, default to a generic one
+        let businessPhone = urlParams.get('phone');
+        if (!businessPhone) businessPhone = '+61 400 000 000';
+        
+        // Update DOM elements with business name
+        document.title = businessName + ' - Official Website';
+        document.getElementById('brand-name-logo').innerText = businessName;
+        document.getElementById('brand-name-hero').innerText = 'Welcome to ' + businessName;
+        document.getElementById('brand-name-contact').innerText = businessName;
+        document.getElementById('brand-name-footer').innerText = businessName;
+        
+        // Update Phone
+        document.getElementById('phone-display').innerText = businessPhone;
+        
+        // Create an email based on the name
+        let emailPrefix = businessName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if(emailPrefix.length > 15) emailPrefix = emailPrefix.substring(0, 15);
+        document.getElementById('email-display').innerText = 'hello@' + emailPrefix + '.com.au';
+    </script>
+</body>
+</html>
