@@ -1,113 +1,95 @@
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
   ui.createMenu('Lead Generation')
-      .addItem('Import Clinic Leads', 'fetchAndImportLeads')
+      .addItem('Import Free Clinic Leads', 'fetchFreeLeads')
       .addToUi();
 }
 
-// NOTE: You will need a Google Maps API Key to fetch live data.
-var API_KEY = 'YOUR_API_KEY_HERE'; // <-- MAKE SURE TO PUT YOUR REAL KEY HERE
-
-// Set up the GitHub pages URL
+// Set up the GitHub pages URL for your demo website
 var GITHUB_PAGES_URL = 'https://boostrnetwave.github.io/antigravity/';
 
-function fetchAndImportLeads() {
+function fetchFreeLeads() {
   var ui = SpreadsheetApp.getUi();
-  if (API_KEY === 'YOUR_API_KEY_HERE' || API_KEY === '') {
-    ui.alert("API Key Missing", "Please add your Google Maps API key in the Apps Script Code.gs file.", ui.ButtonSet.OK);
-    return;
-  }
-
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  
+  // We use OpenStreetMap's free Overpass API instead of Google Maps. No API Key Needed!
   var queries = [
-    { query: "Dental Clinics in Australia", sheetName: "Dental Clinics", category: "Dental Clinic" },
-    { query: "Medical Centres in Australia", sheetName: "Medical Centres", category: "Medical Centre" },
-    { query: "Cosmetic Clinics in Australia", sheetName: "Cosmetic Clinics", category: "Cosmetic Clinic" },
-    { query: "Physiotherapy Clinics in Australia", sheetName: "Physiotherapy Clinics", category: "Physiotherapy Clinic" }
+    { sheetName: "Dental Clinics", category: "Dental Clinic", overpass: 'nwr["amenity"="dentist"]' },
+    { sheetName: "Medical Centres", category: "Medical Centre", overpass: 'nwr["amenity"="clinic"]' },
+    { sheetName: "Cosmetic Clinics", category: "Cosmetic Clinic", overpass: 'nwr["healthcare"="clinic"]' },
+    { sheetName: "Physiotherapy Clinics", category: "Physiotherapy Clinic", overpass: 'nwr["healthcare"="physiotherapist"]' }
   ];
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
   var errorOccurred = false;
 
   for (var i = 0; i < queries.length; i++) {
     var queryObj = queries[i];
     var sheet = ss.getSheetByName(queryObj.sheetName);
     
-    // Create sub sheet if it doesn't exist
     if (!sheet) {
       sheet = ss.insertSheet(queryObj.sheetName);
     } else {
-      sheet.clear(); // Clear existing data to refresh
+      sheet.clear();
     }
 
-    var headers = ["Business Name", "Address", "Rating", "Phone Number", "Website", "Demo Website Link", "Send WhatsApp"];
+    var headers = ["Business Name", "Address", "Phone Number", "Website", "Demo Website Link", "Send WhatsApp"];
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight("bold");
 
-    // Fetch data from Google Places API
-    var url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + encodeURIComponent(queryObj.query) + "&key=" + API_KEY;
-    
+    // Query OpenStreetMap for Australia specifically (ISO3166-1="AU")
+    // We request up to 100 results per category to avoid timeout limits
+    var overpassQuery = '[out:json][timeout:25];area["ISO3166-1"="AU"][admin_level=2]->.searchArea;(' + queryObj.overpass + '(area.searchArea););out center 100;';
+    var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(overpassQuery);
+
     try {
       var response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
-      var json = JSON.parse(response.getContentText());
+      var responseCode = response.getResponseCode();
       
-      // Check for API errors immediately
-      if (json.status !== "OK") {
-        ui.alert("API Error while searching " + queryObj.category, "Status: " + json.status + "\nMessage: " + (json.error_message || "Unknown error. Check if Places API is enabled and Billing is active."), ui.ButtonSet.OK);
+      if (responseCode !== 200) {
+        ui.alert("API Error", "The free leads API is currently busy or returned an error. Please try again in a few minutes.", ui.ButtonSet.OK);
         errorOccurred = true;
-        break; // Stop execution on API error
+        break;
       }
       
-      var results = json.results;
-      if (!results || results.length === 0) {
-        continue;
-      }
+      var json = JSON.parse(response.getContentText());
+      var elements = json.elements;
+      
+      if (!elements || elements.length === 0) continue;
 
       var rows = [];
       
-      for (var j = 0; j < results.length; j++) {
-        var place = results[j];
+      for (var j = 0; j < elements.length; j++) {
+        var el = elements[j];
+        if (!el.tags || !el.tags.name) continue; // Skip businesses without a name
         
-        // We need place details to get the phone number and website
-        var detailsUrl = "https://maps.googleapis.com/maps/api/place/details/json?place_id=" + place.place_id + "&fields=name,formatted_address,rating,formatted_phone_number,website,photos&key=" + API_KEY;
-        Utilities.sleep(200); // Sleep longer to prevent hitting rate limits
+        var name = el.tags.name || "";
+        var phone = el.tags.phone || el.tags["contact:phone"] || "";
+        var website = el.tags.website || el.tags["contact:website"] || "";
         
-        var detailsResponse = UrlFetchApp.fetch(detailsUrl, { muteHttpExceptions: true });
-        var detailsJson = JSON.parse(detailsResponse.getContentText());
+        // Construct a basic address from tags if available
+        var street = el.tags["addr:street"] || "";
+        var housenumber = el.tags["addr:housenumber"] || "";
+        var city = el.tags["addr:city"] || "";
+        var postcode = el.tags["addr:postcode"] || "";
         
-        if (detailsJson.status !== "OK") {
-          continue; // Skip if details API fails for a specific place
-        }
-        
-        var details = detailsJson.result;
-        if (!details) continue;
+        var address = [housenumber, street, city, postcode].filter(Boolean).join(" ");
+        if (!address) address = "Australia"; // fallback
 
-        var name = details.name || "";
-        var address = details.formatted_address || "";
-        var rating = details.rating || "";
-        var phone = details.formatted_phone_number || "";
-        var website = details.website || "";
-        
-        // Build the Demo Website Link with parameters
+        // Build Demo Link
         var demoLinkUrl = GITHUB_PAGES_URL + "?name=" + encodeURIComponent(name) + 
                           "&address=" + encodeURIComponent(address) + 
                           "&phone=" + encodeURIComponent(phone) + 
-                          "&category=" + encodeURIComponent(queryObj.category) +
-                          "&rating=" + encodeURIComponent(rating);
+                          "&category=" + encodeURIComponent(queryObj.category);
                           
-        if (details.photos && details.photos.length > 0) {
-          var photoUrl = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=" + details.photos[0].photo_reference + "&key=" + API_KEY;
-          demoLinkUrl += "&photo=" + encodeURIComponent(photoUrl);
-        }
-
         var demoLinkFormula = '=HYPERLINK("' + demoLinkUrl + '", "View Demo Website")';
 
-        // Build the WhatsApp Greeting Message & Link Formula
-        var greetingMessage = "Hello " + name + ", I noticed your clinic and we created a custom demo website for you! Check it out here: " + demoLinkUrl;
+        // Build WhatsApp Link
         var cleanPhone = phone.replace(/[^0-9]/g, "");
+        var greetingMessage = "Hello " + name + ", I noticed your clinic and we created a custom demo website for you! Check it out here: " + demoLinkUrl;
         var whatsappUrl = "https://wa.me/" + cleanPhone + "?text=" + encodeURIComponent(greetingMessage);
         
         var whatsappFormula = cleanPhone ? '=HYPERLINK("' + whatsappUrl + '", "Send WhatsApp")' : "No Phone Available";
 
-        rows.push([name, address, rating, phone, website, demoLinkFormula, whatsappFormula]);
+        rows.push([name, address, phone, website, demoLinkFormula, whatsappFormula]);
       }
 
       // Write data to sheet
@@ -121,9 +103,12 @@ function fetchAndImportLeads() {
       errorOccurred = true;
       break;
     }
+    
+    // Sleep briefly to be respectful to the free API server
+    Utilities.sleep(1000); 
   }
   
   if (!errorOccurred) {
-    ui.alert("Success", "Leads imported successfully!", ui.ButtonSet.OK);
+    ui.alert("Success", "Free leads imported successfully!", ui.ButtonSet.OK);
   }
 }
