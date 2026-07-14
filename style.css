@@ -27,8 +27,8 @@ a { text-decoration: none; color: inherit; transition: 0.2s; }
 .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; border: none; }
 .btn-primary { background: var(--primary); color: white; }
 .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
-.btn-outline { background: white; border: 1px solid #e2e8f0; color: var(--primary); }
-.btn-outline:hover { border-color: var(--primary); }
+.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: white; }
 .btn-accent { background: var(--accent); color: white; }
 
 /* Navbar */
