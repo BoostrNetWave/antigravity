@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Dental Collective</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Services Hero */
+        .svc-hero { padding: 120px 0; text-align: center; background: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; position: relative; }
+        .svc-hero::before { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.9); }
+        .svc-hero .container { position: relative; z-index: 2; max-width: 700px; }
+        .svc-hero .tag-pill { background: rgba(0,0,0,0.05); color: var(--text-main); font-size: 10px; font-weight: 700; padding: 6px 12px; border-radius: 50px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; display: inline-block; }
+        .svc-hero h1 { font-size: 48px; margin-bottom: 24px; color: var(--primary); }
+        .svc-hero p { font-size: 15px; color: var(--text-main); margin-bottom: 40px; }
+
+        /* Service Categories */
+        .category { padding: 80px 0 20px 0; }
+        .category h2 { font-size: 24px; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #edf2f7; }
+        .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .cat-card { border: 1px solid #edf2f7; border-radius: var(--border-radius-md); padding: 32px; transition: 0.3s; }
+        .cat-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.03); transform: translateY(-2px); }
+        .cat-icon { width: 36px; height: 36px; background: var(--bg-muted); color: var(--text-main); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .cat-icon svg { width: 18px; height: 18px; fill: currentColor; }
+        .cat-card h4 { font-size: 16px; margin-bottom: 8px; }
+        .cat-card p { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; min-height: 60px; }
+        .cat-card a { font-size: 12px; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 4px; }
+        
+        /* The Difference */
+        .difference { background: var(--primary); padding: 100px 0; margin-top: 80px; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
+        .diff-text h2 { color: white; font-size: 36px; margin-bottom: 16px; }
+        .diff-text p { color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; }
+        .diff-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .diff-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius-md); padding: 32px; }
+        .diff-card .icon { color: white; margin-bottom: 16px; }
+        .diff-card .icon svg { width: 20px; height: 20px; fill: currentColor; }
+        .diff-card h4 { color: white; font-size: 16px; margin-bottom: 8px; }
+        .diff-card p { color: rgba(255,255,255,0.7); font-size: 12px; }
+
+        /* Journey */
+        .journey { padding: 100px 0; text-align: center; }
+        .journey h2 { font-size: 32px; margin-bottom: 12px; }
+        .journey > p { font-size: 14px; color: var(--text-muted); margin-bottom: 60px; }
+        .journey-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+        .journey-grid::before { content: ''; position: absolute; top: 24px; left: 15%; right: 15%; height: 1px; background: #edf2f7; z-index: 1; }
+        .step { position: relative; z-index: 2; }
+        .step-num { width: 48px; height: 48px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; margin: 0 auto 24px auto; box-shadow: 0 0 0 10px white; }
+        .step h4 { font-size: 18px; margin-bottom: 8px; }
+        .step p { font-size: 13px; color: var(--text-muted); max-width: 250px; margin: 0 auto; }
+
+        /* CTA Banner */
+        .cta-banner { margin: 0 40px 100px 40px; border-radius: var(--border-radius-lg); overflow: hidden; position: relative; padding: 100px 0; text-align: center; background: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; }
+        .cta-banner::before { content: ''; position: absolute; inset: 0; background: rgba(7, 34, 66, 0.85); }
+        .cta-banner .content { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+        .cta-banner h2 { color: white; font-size: 32px; margin-bottom: 16px; font-style: italic; font-family: 'Playfair Display', serif; }
+        .cta-banner p { color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 32px; }
+
+        @media (max-width: 1024px) {
+            .cat-grid { grid-template-columns: 1fr 1fr; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .journey-grid { grid-template-columns: 1fr; gap: 60px; }
+            .journey-grid::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-logo">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <span class="brand-text">Aura Dental</span>
+        </div>
+        <div class="nav-links">
+            <a href="dental-demo.html" class="nav-link">Home</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary nav-link">Book Appointment</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="svc-hero">
+        <div class="container">
+            <div class="tag-pill">Uncompromising Care</div>
+            <h1>Comprehensive Dental Excellence</h1>
+            <p>At <span class="brand-text">Aura Dental Collective</span>, we blend clinical precision with a luxury wellness experience. Our patient-centered approach ensures every visit is as comfortable as it is effective.</p>
+            <div style="display:flex; gap:16px; justify-content:center;">
+                <a href="contact.html" class="btn btn-primary nav-link">Explore Treatments</a>
+                <a href="#pricing" class="btn btn-outline">View Pricing</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Preventative -->
+        <section class="category">
+            <h2>Preventative & General</h2>
+            <div class="cat-grid">
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                    <h4>Check-ups</h4>
+                    <p>Comprehensive examinations using 3D imaging to detect issues before they arise.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg></div>
+                    <h4>Hygiene</h4>
+                    <p>Professional scaling and polishing for optimal gum health and a lasting fresh feel.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <h4>Fillings</h4>
+                    <p>Mercury-free, tooth-colored composite resins that blend seamlessly with your smile.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+                    <h4>Root Canals</h4>
+                    <p>Painless therapy designed to save natural teeth and eliminate persistent infection.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cosmetic -->
+        <section class="category">
+            <h2>Cosmetic & Restorative</h2>
+            <div class="cat-grid">
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <h4>Teeth Whitening</h4>
+                    <p>Advanced LED-activated brightening for dramatic results in a single boutique session.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg></div>
+                    <h4>Veneers</h4>
+                    <p>Custom-crafted porcelain shells that redefine the shape and shade of your smile.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+                    <h4>Implants</h4>
+                    <p>Permanent, titanium-reinforced solutions for missing teeth with a natural look.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                    <h4>Crowns & Bridges</h4>
+                    <p>High-strength ceramic restorations that return full function to damaged teeth.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized -->
+        <section class="category">
+            <h2>Specialized Care</h2>
+            <div class="cat-grid">
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <h4>Orthodontics</h4>
+                    <p>Clear correct aligners to straighten your teeth without traditional braces.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                    <h4>Children's Dentistry</h4>
+                    <p>A gentle, fun environment designed to build lifelong positive habits for small smiles.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
+                    <h4>Emergency Care</h4>
+                    <p>Priority same-day appointments for dental trauma or severe pain when you need us most.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg></div>
+                    <h4>Advanced Diagnostics</h4>
+                    <p>Utilizing iTero 3D scanning for incredibly accurate digital impressions without the mess.</p>
+                    <a href="contact.html" class="nav-link">Learn More &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- The Difference -->
+    <section class="difference">
+        <div class="container diff-grid">
+            <div class="diff-text">
+                <h2>The <span class="brand-text">Aura</span> Difference</h2>
+                <p>We don't just treat teeth; we care for people. Our technology is integrated specifically to enhance your comfort and results.</p>
+            </div>
+            <div class="diff-cards">
+                <div class="diff-card">
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></div>
+                    <h4>3D Digital Precision</h4>
+                    <p>No more messy goop. Our 3D scanners create perfect digital maps of your mouth instantly.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                    <h4>Anxiety-Free Methods</h4>
+                    <p>From noise-canceling headphones to gentle sleep dentistry, we prioritize your peace of mind.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg></div>
+                    <h4>Same-Day Results</h4>
+                    <p>Our in-house lab allows for immediate adjustments and faster delivery of crowns and veneers.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+                    <h4>Australian Standards</h4>
+                    <p>Stringent clinical protocols that exceed local hygiene and safety benchmarks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey -->
+    <section class="journey container">
+        <h2>Your Journey to Radiance</h2>
+        <p>A simple, transparent process from your first click to your final smile.</p>
+        
+        <div class="journey-grid">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h4>Consultation</h4>
+                <p>A relaxed conversation with our specialists to understand your goals and dental history.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h4>Personalized Plan</h4>
+                <p>We design a bespoke treatment roadmap using 3D simulations and transparent pricing.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h4>Transformation</h4>
+                <p>Experience your new smile with ongoing support and maintenance from our expert team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner -->
+    <div class="cta-banner">
+        <div class="content">
+            <h2>Ready for your <span class="brand-text">Aura</span> Session?</h2>
+            <p>Book a comprehensive consultation today and discover why <span class="brand-text">Aura</span> is the new standard in Australian dental care.</p>
+            <div style="display:flex; gap:16px; justify-content:center;">
+                <a href="contact.html" class="btn btn-accent nav-link">Book Your Consult</a>
+                <a href="contact.html" class="btn btn-outline nav-link" style="color:white; border-color:rgba(255,255,255,0.5);">Call <span class="phone-text">(03) 9000 0000</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    <span class="brand-text">Aura Dental</span>
+                </div>
+                <p>Redefining the Australian dental experience through clinical excellence and luxury hospitality.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Practice</h4>
+                <a href="about.html" class="nav-link">Our Story</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="#">Technology</a>
+            </div>
+            <div class="footer-col">
+                <h4>Patient Info</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Patient Rights</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Dynamic Logic script -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let bName = urlParams.get('name') || 'Aura Dental Collective';
+        let bPhone = urlParams.get('phone') || '(03) 9000 0000';
+        
+        document.title = 'Services - ' + bName;
+        
+        const brands = document.getElementsByClassName('brand-text');
+        for(let i=0; i<brands.length; i++) brands[i].innerText = bName;
+        
+        const phones = document.getElementsByClassName('phone-text');
+        for(let i=0; i<phones.length; i++) phones[i].innerText = bPhone;
+        
+        const links = document.getElementsByClassName('nav-link');
+        for(let i=0; i<links.length; i++) {
+            let href = links[i].getAttribute('href');
+            if(href && !href.startsWith('#')) {
+                let symbol = href.includes('?') ? '&' : '?';
+                links[i].setAttribute('href', href + symbol + 'name=' + encodeURIComponent(bName) + '&phone=' + encodeURIComponent(bPhone));
+            }
+        }
+    </script>
+</body>
+</html>

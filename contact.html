@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dental Collective</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact Hero */
+        .contact-hero { padding: 120px 0; background: var(--bg-offwhite); display: flex; align-items: center; min-height: 70vh; }
+        .hero-grid { display: grid; grid-template-columns: 45% 55%; gap: 60px; align-items: center; }
+        .hero-text .tag-pill { background: var(--accent); color: white; font-size: 10px; font-weight: 700; padding: 6px 12px; border-radius: 50px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; display: inline-block; }
+        .hero-text h1 { font-size: 48px; margin-bottom: 24px; line-height: 1.1; }
+        .hero-text p { font-size: 15px; color: var(--text-main); margin-bottom: 40px; max-width: 400px; }
+        .hero-img { border-radius: var(--border-radius-xl); overflow: hidden; height: 500px; }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Main Contact Section */
+        .contact-main { padding: 100px 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: flex-start; }
+        
+        /* Info Cards */
+        .info-list { display: flex; flex-direction: column; gap: 40px; }
+        .info-item { display: flex; gap: 24px; }
+        .info-icon { width: 40px; height: 40px; background: #e0f6f7; color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .info-icon svg { width: 18px; height: 18px; fill: currentColor; }
+        .info-item h4 { font-size: 15px; margin-bottom: 8px; }
+        .info-item p, .info-item a { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+        .hours-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); margin-bottom: 4px; border-bottom: 1px dashed #edf2f7; padding-bottom: 4px; }
+        
+        /* Form */
+        .contact-form { background: white; padding: 48px; border-radius: var(--border-radius-xl); box-shadow: 0 20px 40px rgba(0,0,0,0.04); border: 1px solid #edf2f7; }
+        .contact-form h3 { font-size: 24px; margin-bottom: 32px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 12px; color: var(--text-muted); }
+        .form-group input, .form-group select, .form-group textarea { padding: 12px 0; border: none; border-bottom: 1px solid #e2e8f0; font-size: 14px; background: transparent; outline: none; transition: 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); }
+        
+        /* Map Section */
+        .map-section { background: var(--bg-muted); height: 600px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .map-card { background: white; padding: 40px; border-radius: var(--border-radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; width: 320px; z-index: 2; }
+        .map-card .icon { margin-bottom: 16px; color: var(--primary); }
+        .map-card .icon svg { width: 32px; height: 32px; fill: currentColor; }
+        .map-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .map-card p { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; }
+        .map-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; opacity: 0.1; mix-blend-mode: multiply; filter: grayscale(100%); }
+
+        @media (max-width: 1024px) {
+            .hero-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-logo">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <span class="brand-text">Aura Dental</span>
+        </div>
+        <div class="nav-links">
+            <a href="dental-demo.html" class="nav-link">Home</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary nav-link">Book Appointment</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="contact-hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="tag-pill">Get In Touch</span>
+                <h1>We're Here to Help Your Smile Shine</h1>
+                <p>Whether you have a question about a treatment or are ready to book your first consultation, our team is ready to assist you.</p>
+            </div>
+            <div class="hero-img">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Clinic Reception">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact -->
+    <section class="contact-main container">
+        <div class="contact-grid">
+            
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                    <div>
+                        <h4>Visit Our Clinic</h4>
+                        <p>Level 4, 123 Collins St,<br>Melbourne VIC 3000</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                    <div>
+                        <h4>Speak with Us</h4>
+                        <p class="phone-text">(03) 9000 0000</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                    <div>
+                        <h4>Email Us</h4>
+                        <p id="email-display">hello@auradental.com.au</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+                    <div style="width:100%;">
+                        <h4>Opening Hours</h4>
+                        <div class="hours-row"><span>Mon - Fri:</span> <span>8:00 AM - 6:00 PM</span></div>
+                        <div class="hours-row"><span>Saturday:</span> <span>9:00 AM - 2:00 PM</span></div>
+                        <div class="hours-row" style="color:#e53e3e; border:none;"><span>Sunday:</span> <span>Closed</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send an Inquiry</h3>
+                <form onsubmit="event.preventDefault(); alert('Inquiry Sent!');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Inquiry Subject</label>
+                            <select>
+                                <option>General Inquiry</option>
+                                <option>Book Consultation</option>
+                                <option>Pricing Information</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom:32px;">
+                        <label>Your Message</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map-section">
+        <div class="map-bg"></div>
+        <div class="map-card">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <h3>Find us in the CBD</h3>
+            <p>Level 4, 123 Collins Street<br>Melbourne, Victoria 3000</p>
+            <a href="#" class="btn btn-primary" style="width:100%;">Get Directions</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    <span class="brand-text">Aura Dental</span>
+                </div>
+                <p>Redefining the Australian dental experience through clinical excellence and luxury hospitality.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Practice</h4>
+                <a href="about.html" class="nav-link">Our Story</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="#">Technology</a>
+            </div>
+            <div class="footer-col">
+                <h4>Patient Info</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Patient Rights</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Dynamic Logic script -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let bName = urlParams.get('name') || 'Aura Dental Collective';
+        let bPhone = urlParams.get('phone') || '(03) 9000 0000';
+        
+        document.title = 'Contact - ' + bName;
+        
+        const brands = document.getElementsByClassName('brand-text');
+        for(let i=0; i<brands.length; i++) brands[i].innerText = bName;
+        
+        const phones = document.getElementsByClassName('phone-text');
+        for(let i=0; i<phones.length; i++) phones[i].innerText = bPhone;
+
+        let emailPrefix = bName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        if(emailPrefix.length > 20) emailPrefix = emailPrefix.substring(0, 20);
+        document.getElementById('email-display').innerText = 'hello@' + emailPrefix + '.com.au';
+        
+        const links = document.getElementsByClassName('nav-link');
+        for(let i=0; i<links.length; i++) {
+            let href = links[i].getAttribute('href');
+            if(href && !href.startsWith('#')) {
+                let symbol = href.includes('?') ? '&' : '?';
+                links[i].setAttribute('href', href + symbol + 'name=' + encodeURIComponent(bName) + '&phone=' + encodeURIComponent(bPhone));
+            }
+        }
+    </script>
+</body>
+</html>

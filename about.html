@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dental Collective</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hero */
+        .about-hero { position: relative; min-height: 80vh; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center right/cover; }
+        .about-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); }
+        .about-hero .container { position: relative; z-index: 2; max-width: 650px; margin-left: 0; padding-left: 10%; }
+        .about-hero h1 { font-size: 52px; margin-bottom: 24px; color: var(--primary); }
+        .about-hero p { font-size: 16px; color: var(--text-main); margin-bottom: 40px; }
+
+        /* Story */
+        .story { padding: 120px 0; }
+        .story-grid { display: grid; grid-template-columns: 45% 55%; gap: 80px; align-items: center; }
+        .story-img { border-radius: var(--border-radius-xl); overflow: hidden; }
+        .story-img img { width: 100%; display: block; }
+        .story-text .tag { color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; display: block; }
+        .story-text h2 { font-size: 36px; margin-bottom: 24px; }
+        .story-text p { font-size: 14px; margin-bottom: 20px; line-height: 1.6; color: var(--text-muted); }
+
+        /* Pillars */
+        .pillars { background: var(--bg-offwhite); padding: 100px 0; text-align: center; }
+        .pillars h2 { font-size: 32px; margin-bottom: 16px; }
+        .pillars > p { font-size: 14px; margin-bottom: 60px; max-width: 550px; margin-inline: auto; color: var(--text-muted); }
+        .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .pillar-card { background: var(--bg-muted); padding: 40px 32px; border-radius: var(--border-radius-lg); text-align: left; }
+        .icon-box { width: 44px; height: 44px; background: #e0f6f7; color: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+        .icon-box svg { width: 22px; height: 22px; fill: currentColor; }
+        .pillar-card h3 { font-size: 17px; margin-bottom: 12px; }
+        .pillar-card p { font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+
+        /* Leadership */
+        .leadership { padding: 100px 0; background: var(--bg-muted); }
+        .leadership h2 { font-size: 32px; margin-bottom: 50px; }
+        .leader-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .leader-card { display: flex; background: white; border-radius: var(--border-radius-lg); padding: 24px; gap: 24px; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .leader-card img { width: 120px; height: 120px; border-radius: var(--border-radius-md); object-fit: cover; }
+        .leader-info h3 { font-size: 18px; margin-bottom: 4px; }
+        .leader-info .title { font-size: 11px; text-transform: uppercase; color: var(--accent); font-weight: 700; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .leader-info p { font-size: 12px; line-height: 1.5; color: var(--text-muted); }
+
+        /* Tech Section */
+        .tech { padding: 100px 0; display: flex; gap: 80px; align-items: center; }
+        .tech-text { width: 45%; }
+        .tech-text h2 { font-size: 36px; margin-bottom: 20px; }
+        .tech-text > p { margin-bottom: 40px; font-size: 14px; color: var(--text-muted); }
+        .tech-item { display: flex; gap: 16px; margin-bottom: 24px; }
+        .tech-icon { width: 36px; height: 36px; background: #e0f6f7; color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .tech-icon svg { width: 18px; height: 18px; fill: currentColor; }
+        .tech-item h4 { font-size: 15px; margin-bottom: 4px; }
+        .tech-item p { font-size: 13px; color: var(--text-muted); }
+        .tech-img { width: 55%; position: relative; }
+        .tech-img img { width: 100%; border-radius: var(--border-radius-xl); display: block; }
+        .tech-badge { position: absolute; bottom: -20px; left: -20px; background: white; padding: 20px 32px; border-radius: var(--border-radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+        .tech-badge strong { font-size: 24px; color: var(--primary); font-weight: 700; }
+        .tech-badge span { font-size: 11px; color: var(--text-muted); }
+
+        /* Commitment */
+        .commit { padding: 100px 0; background: var(--bg-offwhite); }
+        .commit-grid { display: grid; grid-template-columns: 55% 45%; gap: 60px; align-items: center; }
+        .commit-images { display: flex; gap: 20px; }
+        .commit-images img { width: 50%; border-radius: var(--border-radius-lg); object-fit: cover; height: 250px; }
+        .commit-text h2 { font-size: 32px; margin-bottom: 24px; }
+        .commit-text p { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; }
+
+        /* CTA */
+        .cta { background: var(--primary); padding: 80px 0; text-align: center; color: white; }
+        .cta h2 { color: white; font-size: 32px; margin-bottom: 16px; }
+        .cta p { font-size: 14px; margin-bottom: 32px; opacity: 0.9; max-width: 500px; margin-inline: auto; }
+        .cta-btns { display: flex; justify-content: center; gap: 16px; }
+
+        @media (max-width: 1024px) {
+            .story-grid, .tech, .commit-grid, .pillars-grid, .leader-grid { grid-template-columns: 1fr; gap: 40px; flex-direction: column; }
+            .tech-text, .tech-img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-logo">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <span class="brand-text">Aura Dental</span>
+        </div>
+        <div class="nav-links">
+            <a href="dental-demo.html" class="nav-link">Home</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary nav-link">Book Appointment</a>
+    </nav>
+
+    <!-- Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Redefining the Dental Experience</h1>
+            <p>Our mission is to bridge the gap between clinical excellence and the luxury of a wellness retreat. Experience dentistry that prioritizes your comfort as much as your health.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="contact.html" class="btn btn-primary nav-link">Discover Our Approach</a>
+                <a href="services.html" class="btn btn-outline nav-link">View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story -->
+    <section class="story container">
+        <div class="story-grid">
+            <div class="story-img">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dentists">
+            </div>
+            <div class="story-text">
+                <span class="tag">Our Story</span>
+                <h2>Born in Melbourne, Designed for You</h2>
+                <p><span class="brand-text">Aura Dental Collective</span> began with a single vision in the heart of Melbourne: to strip away the clinical coldness of traditional dentistry and replace it with a patient-centered sanctuary.</p>
+                <p>Our founders recognized that fear and discomfort often stand in the way of optimal oral health. They set out to build a practice where high-end technology meets empathetic, human connection.</p>
+                <p>Today, we stand as a testament to that vision—a place where clinical precision is delivered through the lens of luxury wellness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars -->
+    <section class="pillars">
+        <div class="container">
+            <h2>Core Pillars of <span class="brand-text">Aura</span></h2>
+            <p>Every interaction at our clinic is guided by four fundamental values that ensure your experience is nothing short of exceptional.</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                    <h3>Patient-First Care</h3>
+                    <p>Your comfort and preferences lead every treatment plan we create together.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg></div>
+                    <h3>Clinical Excellence</h3>
+                    <p>Uncompromising standards in every procedure, from hygiene to complex restoration.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <h3>Advanced Technology</h3>
+                    <p>Leveraging the latest diagnostic tools for faster, more accurate results.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg></div>
+                    <h3>Compassionate Environment</h3>
+                    <p>A calming space designed to reduce anxiety and promote true wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="leadership">
+        <div class="container">
+            <h2>Meet Our Leadership</h2>
+            <div class="leader-grid">
+                <div class="leader-card">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Mitchell">
+                    <div class="leader-info">
+                        <h3>Dr. Sarah Mitchell</h3>
+                        <span class="title">Lead Dentist</span>
+                        <p>With over 15 years of experience in restorative and cosmetic dentistry, Dr. Mitchell is passionate about the intersection of dental health and overall well-being.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. James Harrison">
+                    <div class="leader-info">
+                        <h3>Dr. James Harrison</h3>
+                        <span class="title">Director</span>
+                        <p>Dr. Harrison oversees the integration of clinical systems and patient experience strategy, ensuring the best vision is delivered consistently to every patient.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section -->
+    <section class="tech container">
+        <div class="tech-text">
+            <h2>Precision Powered by Technology</h2>
+            <p>We invest in the future of dentistry to provide you with more comfortable, faster, and more accurate care.</p>
+            
+            <div class="tech-item">
+                <div class="tech-icon"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></div>
+                <div>
+                    <h4>3D Scanners</h4>
+                    <p>Say goodbye to uncomfortable impressions with our precise in-mouth digital scanners.</p>
+                </div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+                <div>
+                    <h4>AI Diagnostics</h4>
+                    <p>Our AI-assisted imaging identifies potential issues with microscopic accuracy for earlier intervention.</p>
+                </div>
+            </div>
+        </div>
+        <div class="tech-img">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dental Technology">
+            <div class="tech-badge">
+                <strong>99.8%</strong>
+                <span>Diagnostic Accuracy</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment -->
+    <section class="commit">
+        <div class="container commit-grid">
+            <div class="commit-images">
+                <img src="https://images.unsplash.com/photo-1522845015757-50bce044e5da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clinic">
+            </div>
+            <div class="commit-text">
+                <h2>Our Commitment Beyond the Clinic</h2>
+                <p><span class="brand-text">Aura</span> is more than just a dental clinic; we are a dedicated member of our local community. We actively support local charities and maintain a strictly paperless, eco-friendly workflow to minimize our environmental footprint.</p>
+                <a href="#" style="color:var(--primary); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Learn about our Green Initiative &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Experience the <span class="brand-text">Aura</span> Difference</h2>
+            <p>Join our collective today and transform the way you think about dental care. Your journey to a healthier, more confident smile starts here.</p>
+            <div class="cta-btns">
+                <a href="contact.html" class="btn btn-accent nav-link">Book Your Visit</a>
+                <a href="contact.html" class="btn btn-outline nav-link" style="color:white; border-color:rgba(255,255,255,0.3);">Contact A Concierge</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    <span class="brand-text">Aura Dental</span>
+                </div>
+                <p>Redefining the Australian dental experience through clinical excellence and luxury hospitality.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Practice</h4>
+                <a href="about.html" class="nav-link">Our Story</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="#">Technology</a>
+            </div>
+            <div class="footer-col">
+                <h4>Patient Info</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Patient Rights</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Dynamic Logic script -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let bName = urlParams.get('name') || 'Aura Dental Collective';
+        let bPhone = urlParams.get('phone') || '(03) 9000 0000';
+        
+        document.title = 'About Us - ' + bName;
+        
+        const brands = document.getElementsByClassName('brand-text');
+        for(let i=0; i<brands.length; i++) brands[i].innerText = bName;
+        
+        const phones = document.getElementsByClassName('phone-text');
+        for(let i=0; i<phones.length; i++) phones[i].innerText = bPhone;
+        
+        const links = document.getElementsByClassName('nav-link');
+        for(let i=0; i<links.length; i++) {
+            let href = links[i].getAttribute('href');
+            if(href && !href.startsWith('#')) {
+                let symbol = href.includes('?') ? '&' : '?';
+                links[i].setAttribute('href', href + symbol + 'name=' + encodeURIComponent(bName) + '&phone=' + encodeURIComponent(bPhone));
+            }
+        }
+    </script>
+</body>
+</html>
