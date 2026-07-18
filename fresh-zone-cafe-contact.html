@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us | FRESH ZONE CAFE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdad4",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-background": "#1b1d0e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#ae8d87",
+                    "secondary-fixed": "#ffdcc6",
+                    "tertiary": "#755b00",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303221",
+                    "primary-container": "#3e2723",
+                    "secondary-fixed-dim": "#eabda0",
+                    "outline": "#827472",
+                    "inverse-on-surface": "#f2f2d9",
+                    "surface-container-highest": "#e4e4cc",
+                    "surface-container": "#efefd7",
+                    "on-primary-fixed": "#2b1613",
+                    "secondary": "#79573f",
+                    "on-surface": "#1b1d0e",
+                    "surface-container-high": "#eaead1",
+                    "primary-fixed-dim": "#e3beb8",
+                    "on-secondary-fixed": "#2d1604",
+                    "on-surface-variant": "#504442",
+                    "background": "#fbfbe2",
+                    "tertiary-container": "#cea72c",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "tertiary-fixed-dim": "#ecc246",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-container": "#7a5840",
+                    "surface": "#fbfbe2",
+                    "tertiary-fixed": "#ffe08e",
+                    "primary": "#271310",
+                    "inverse-primary": "#e3beb8",
+                    "outline-variant": "#d3c3c0",
+                    "surface-tint": "#745853",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#5b403c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "surface-variant": "#e4e4cc",
+                    "surface-container-low": "#f5f5dc",
+                    "surface-dim": "#dbdcc3",
+                    "surface-bright": "#fbfbe2",
+                    "secondary-container": "#ffd1b3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Poppins"],
+                    "label-md": ["Poppins"],
+                    "body-lg": ["Poppins"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-nav {
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .input-transition {
+        transition: all 0.3s ease;
+      }
+      .btn-gold-hover:hover {
+        background-color: #3e2723;
+        transform: scale(1.02);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary-container/80 backdrop-blur-2xl border-b border-tertiary/10 shadow-sm">
+<nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="font-display-lg text-display-lg-mobile md:text-headline-md text-primary dark:text-primary-fixed tracking-tight">
+                FRESH ZONE CAFE
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 font-label-md text-label-md" href="fresh-zone-cafe.html">Home</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 font-label-md text-label-md" href="fresh-zone-cafe-about.html">About Us</a>
+<a class="text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300 font-label-md text-label-md" href="fresh-zone-cafe-menu.html">Online Order</a>
+<a class="text-tertiary font-bold border-b-2 border-tertiary pb-1 font-label-md text-label-md" href="fresh-zone-cafe-contact.html">Contact Us</a>
+</div>
+<div class="flex items-center gap-4"><div class="hidden lg:flex flex-col text-right"><span class="text-xs text-on-surface-variant font-medium">Call us today</span><a href="tel:N/A" class="font-label-md text-primary font-bold hover:text-tertiary transition-colors">N/A</a></div><a href="fresh-zone-cafe-menu.html" class="bg-tertiary-container hover:bg-primary-container text-on-tertiary-container hover:text-white px-6 py-2 rounded-full font-label-md transition-all duration-300 active:scale-95 shadow-md whitespace-nowrap">Order Now</a></div>
+</nav>
+</header>
+<main class="pt-32 pb-margin-desktop">
+<!-- Hero Section -->
+<section class="px-gutter max-w-container-max mx-auto text-center mb-24">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 animate-fade-in">
+                We'd Love to Hear From You.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto opacity-80">
+                Whether you have a question about our roasts, want to book a private tasting, or just want to say hi, our doors and ears are always open.
+            </p>
+</section>
+<!-- Info Grid & Contact Form Asymmetric Layout -->
+<section class="px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+<!-- Left Column: Contact Info Cards -->
+<div class="lg:col-span-5 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
+<!-- Address Card -->
+<div class="p-8 bg-surface-container-low rounded-[24px] border border-outline-variant/30 shadow-[0px_12px_32px_rgba(62,39,35,0.04)] transition-transform duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" data-icon="location_on">location_on</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Address</h3>
+<p class="text-on-surface-variant">Bhubaneswar, Odisha</p>
+</div>
+<!-- Phone & WhatsApp Card -->
+<div class="p-8 bg-surface-container-low rounded-[24px] border border-outline-variant/30 shadow-[0px_12px_32px_rgba(62,39,35,0.04)] transition-transform duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" data-icon="call">call</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Phone &amp; WhatsApp</h3>
+<p class="text-on-surface-variant">N/A<br/>N/A (WA)</p>
+</div>
+<!-- Email Card -->
+<div class="p-8 bg-surface-container-low rounded-[24px] border border-outline-variant/30 shadow-[0px_12px_32px_rgba(62,39,35,0.04)] transition-transform duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-4" data-icon="mail">mail</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Email</h3>
+<p class="text-on-surface-variant">hello@boostrnetwave.com<br/>events@boostrnetwave.com</p>
+</div>
+<!-- Opening Hours Card -->
+<div class="p-8 bg-primary-container text-on-primary-fixed rounded-[24px] shadow-[0px_12px_32px_rgba(62,39,35,0.12)] transition-transform duration-300 hover:-translate-y-1">
+<span class="material-symbols-outlined text-tertiary-fixed text-3xl mb-4" data-icon="schedule">schedule</span>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Opening Hours</h3>
+<ul class="space-y-1 opacity-90">
+<li class="flex justify-between"><span>Mon - Fri</span> <span>7:00 - 19:00</span></li>
+<li class="flex justify-between"><span>Saturday</span> <span>8:00 - 20:00</span></li>
+<li class="flex justify-between"><span>Sunday</span> <span>8:00 - 17:00</span></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Column: Contact Form -->
+<div class="lg:col-span-7 bg-white p-8 md:p-12 rounded-[24px] shadow-[0px_12px_32px_rgba(62,39,35,0.08)] border border-outline-variant/20">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Get in Touch</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Name</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 input-transition focus:border-tertiary focus:ring-0 outline-none font-body-md" placeholder="Your name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Phone</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 input-transition focus:border-tertiary focus:ring-0 outline-none font-body-md" placeholder="N/A" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Email</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 input-transition focus:border-tertiary focus:ring-0 outline-none font-body-md" placeholder="email@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1">Message</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-xl p-4 input-transition focus:border-tertiary focus:ring-0 outline-none font-body-md resize-none" placeholder="How can we help you?" rows="5"></textarea>
+</div>
+<button class="w-full md:w-auto bg-tertiary-container text-on-tertiary-container font-label-md text-label-md font-bold px-12 py-4 rounded-full shadow-lg transition-all duration-300 btn-gold-hover" type="submit">
+                        Send Message
+                    </button>
+</form>
+</div>
+</section>
+<!-- Visual Map Section -->
+<section class="w-full mb-24 px-gutter max-w-container-max mx-auto">
+<div class="relative w-full h-[500px] rounded-[32px] overflow-hidden shadow-xl border border-outline-variant/30">
+<div class="absolute inset-0 bg-secondary-container flex items-center justify-center" data-alt="A sophisticated, minimalist map graphic styled with a vintage aesthetic. The map features warm cream and gold tones with delicate brown lines indicating streets. Small, elegant icons mark the location of FRESH ZONE CAFE in a cozy urban district. The lighting is soft and ambient, suggesting a high-end editorial travel guide feel." data-location="Denver" style="">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A high-end architectural photography shot of a modern boutique café entrance in a historic district. The building features large industrial glass windows, warm brickwork, and a subtle gold 'Brew Haven' sign. The street is clean and bathed in the soft, golden light of a late afternoon sun, creating a peaceful and welcoming atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA7R8D50H_Mh-Nf3it5uElBS3Z98U2KvEiX9PczyPJ6d3a_He4hN5bckRDFjUR3S5Wo9fmtwikZivQwvVdxon6kTzWvtgrHiT3ZFvIyWBSe37vVzohD7MwbnZOEvtPAMTqVxmqfRmbMSjv_UdBW6IeWSlYmDO9t1dznU1ffkZPpOvg8rfp0SFP5n4AB2cMZguVO903a0a4SP5Z6tdXUCnEtJlElrfkxwEIEuaCk-abeCzcjt3hL6rUIg"/>
+<!-- Interactive Overlay Placeholder -->
+<div class="relative z-10 glass-nav bg-white/20 p-8 rounded-2xl border border-white/30 text-center backdrop-blur-xl">
+<span class="material-symbols-outlined text-primary text-5xl mb-4" data-icon="explore">explore</span>
+<h3 class="font-headline-md text-headline-md text-primary">Interactive Map</h3>
+<p class="text-primary font-medium">Click to find your way to the haven.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Media Section -->
+<section class="px-gutter max-w-container-max mx-auto text-center mb-24">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Connect With Us</h2>
+<div class="flex justify-center items-center space-x-8 md:space-x-16">
+<a class="group flex flex-col items-center space-y-4" href="#">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center transition-all duration-500 group-hover:bg-tertiary-container group-hover:rotate-12">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" data-icon="photo_camera">photo_camera</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-tertiary transition-colors">Instagram</span>
+</a>
+<a class="group flex flex-col items-center space-y-4" href="#">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center transition-all duration-500 group-hover:bg-tertiary-container group-hover:-rotate-12">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" data-icon="thumb_up">thumb_up</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-tertiary transition-colors">Facebook</span>
+</a>
+<a class="group flex flex-col items-center space-y-4" href="#">
+<div class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center transition-all duration-500 group-hover:bg-tertiary-container group-hover:rotate-12">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-on-tertiary-container" data-icon="chat">chat</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-tertiary transition-colors">WhatsApp</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-surface-container-lowest text-on-primary-container dark:text-primary w-full py-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-display-lg text-headline-md text-primary-fixed dark:text-primary mb-6">
+                    FRESH ZONE CAFE
+                </div>
+<p class="font-body-md text-primary-fixed-dim/80 mb-6 max-w-xs">
+                    Curating the finest beans and moments in the heart of the city since 2012.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-tertiary-fixed font-bold uppercase tracking-widest">Visit</h4>
+<div class="font-body-md text-primary-fixed-dim/80 space-y-2">
+<a class="block hover:text-tertiary-fixed transition-colors" href="#">Opening Hours</a>
+<a class="block hover:text-tertiary-fixed transition-colors" href="#">Address</a>
+<a class="block hover:text-tertiary-fixed transition-colors" href="#">Phone</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-tertiary-fixed font-bold uppercase tracking-widest">Social</h4>
+<div class="font-body-md text-primary-fixed-dim/80 space-y-2">
+<a class="block hover:text-tertiary-fixed transition-colors" href="#">Instagram</a>
+<a class="block hover:text-tertiary-fixed transition-colors" href="#">Facebook</a>
+<a class="block hover:text-tertiary-fixed transition-colors" href="#">WhatsApp</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-label-md text-tertiary-fixed font-bold uppercase tracking-widest">Newsletter</h4>
+<p class="font-body-md text-primary-fixed-dim/80 mb-4">Join our community for coffee notes and exclusive offers.</p>
+<div class="flex">
+<input class="bg-primary-container/50 border border-on-primary-container/30 rounded-l-lg px-4 py-2 w-full text-white placeholder-primary-fixed-dim/50 outline-none focus:border-tertiary-fixed" placeholder="Email" type="email"/>
+<button class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 rounded-r-lg font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-on-primary-container/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+<div class="font-body-md text-primary-fixed-dim/60 text-sm">
+                © 2024 FRESH ZONE CAFE All Rights Reserved.
+            </div>
+<div class="flex space-x-6 text-sm text-primary-fixed-dim/60">
+<a class="hover:text-tertiary-fixed" href="#">Privacy Policy</a>
+<a class="hover:text-tertiary-fixed" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for form focus
+        document.querySelectorAll('input, textarea').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label').classList.add('text-tertiary');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label').classList.remove('text-tertiary');
+            });
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
+
+
