@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | The Basil Cafe & Restro</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdad4",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-background": "#1b1d0e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#ae8d87",
+                    "secondary-fixed": "#ffdcc6",
+                    "tertiary": "#755b00",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303221",
+                    "primary-container": "#3e2723",
+                    "secondary-fixed-dim": "#eabda0",
+                    "outline": "#827472",
+                    "inverse-on-surface": "#f2f2d9",
+                    "surface-container-highest": "#e4e4cc",
+                    "surface-container": "#efefd7",
+                    "on-primary-fixed": "#2b1613",
+                    "secondary": "#79573f",
+                    "on-surface": "#1b1d0e",
+                    "surface-container-high": "#eaead1",
+                    "primary-fixed-dim": "#e3beb8",
+                    "on-secondary-fixed": "#2d1604",
+                    "on-surface-variant": "#504442",
+                    "background": "#fbfbe2",
+                    "tertiary-container": "#cea72c",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "tertiary-fixed-dim": "#ecc246",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-container": "#7a5840",
+                    "surface": "#fbfbe2",
+                    "tertiary-fixed": "#ffe08e",
+                    "primary": "#271310",
+                    "inverse-primary": "#e3beb8",
+                    "outline-variant": "#d3c3c0",
+                    "surface-tint": "#745853",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#5b403c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "surface-variant": "#e4e4cc",
+                    "surface-container-low": "#f5f5dc",
+                    "surface-dim": "#dbdcc3",
+                    "surface-bright": "#fbfbe2",
+                    "secondary-container": "#ffd1b3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Poppins"],
+                    "label-md": ["Poppins"],
+                    "body-lg": ["Poppins"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav {
+            border-bottom: 2px solid #755b00; /* Tertiary Gold */
+            padding-bottom: 4px;
+        }
+        .custom-shadow {
+            box-shadow: 0px 12px 32px rgba(62, 39, 35, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary-container/80 backdrop-blur-2xl border-b border-tertiary/10 shadow-sm">
+<nav class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-display-lg text-display-lg-mobile md:text-headline-md text-primary dark:text-primary-fixed" href="#">The Basil Cafe & Restro</a>
+<!-- Desktop Links -->
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="the-basil-cafe-restro.html">Home</a>
+<a class="font-label-md text-label-md text-tertiary font-bold border-b-2 border-tertiary pb-1" href="the-basil-cafe-restro-about.html">About Us</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="the-basil-cafe-restro-menu.html">Online Order</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="the-basil-cafe-restro-contact.html">Contact Us</a>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-label-md hover:bg-primary-container transition-all duration-300 active:scale-95">Order Now</button>
+</div>
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 hover:scale-105" data-alt="A high-end cinematic shot of a professional coffee roaster in action, with golden sunlight streaming through large industrial windows. Wisps of aromatic steam rise from freshly roasted beans being cooled in a circular tray. The scene is rich with warm browns, cream highlights, and soft gold accents, reflecting an artisanal and premium heritage café atmosphere. Depth of field focus on the textures of the beans." style="background-image: url('https://images.unsplash.com/=1600&q=80')">
+</div>
+<div class="absolute inset-0 bg-primary-container/40 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 text-center px-gutter max-w-4xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-surface mb-6 opacity-0 translate-y-8 animate-[fadeInUp_1s_ease_forwards]">
+                    Our Passion is Brewing Happiness
+                </h1>
+<p class="font-body-lg text-surface-container-lowest opacity-0 translate-y-8 animate-[fadeInUp_1s_ease_0.3s_forwards]">
+                    Experience the quiet luxury of artisanal craft and centuries-old coffee heritage.
+                </p>
+</div>
+</section>
+<!-- Our Story Section -->
+<section class="py-margin-desktop px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] rounded-[24px] overflow-hidden custom-shadow">
+<img class="w-full h-full object-cover" data-alt="A vintage-inspired yet modern photograph showing a close-up of a master barista pouring a perfect swan-shaped latte art into a dark ceramic cup. The setting is a minimalist cafe with gold-lined tables and warm beige walls. The lighting is soft and moody, emphasizing the silky texture of the milk and the rich crema of the coffee. Premium and elegant aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZINw4tgKCtireDhuB2bI7_H1E3PK-lst8Cr35fVx_dX9LAo8ffdAgNpH_v3rtncWvgPANh48QUiBdSQ-cpQulz-k3uiS7dxm5hLP4ppS1z9QWK5lp9vIdS7EOx4IyN_VHBM3Xv3_crrpYjjMrqm6SRlPk7itnfxf0QXmBE41x7xsc_9LBNtvOvh1tKraRRkxTDIw_eLxiMocpq6VZs2ShsFSOoUc4G9PVE6BaB0M4u5i-AGbTUOg5Rg"/>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-tertiary rounded-full flex items-center justify-center text-on-tertiary hidden md:flex">
+<span class="text-center font-display-lg text-headline-md leading-tight">Est.<br/>2012</span>
+</div>
+</div>
+<div class="md:col-span-6 md:col-start-7 space-y-6">
+<h2 class="font-headline-lg text-headline-lg text-primary">The Heritage of the Bean</h2>
+<div class="w-20 h-1 bg-tertiary rounded-full"></div>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                        The Basil Cafe & Restro began as a small vision in a quiet alleyway, driven by a simple yet profound belief: coffee is more than a beverage; it is a sensory journey. Founded by master roasters who spent years traversing the highlands of Ethiopia and Colombia, we brought home the secrets of the earth.
+                    </p>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                        Today, we blend that heritage with modern artisanal techniques. Every roast is a tribute to the farmers, every pour a dedication to our guests, and every sip an invitation to find peace in a cup.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Mission & Vision Cards -->
+<section class="bg-surface-container-low py-margin-desktop">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="glass-card p-12 rounded-[24px] custom-shadow hover:-translate-y-2 transition-transform duration-500">
+<div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-surface-container-lowest text-4xl">rocket_launch</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Our Mission</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                        To elevate the daily coffee ritual into an extraordinary experience through unwavering craftsmanship, ethical sourcing, and a deep respect for the art of the brew. We strive to be the sanctuary where every guest feels the warmth of home in every drop.
+                    </p>
+</div>
+<div class="glass-card p-12 rounded-[24px] custom-shadow hover:-translate-y-2 transition-transform duration-500">
+<div class="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-tertiary text-4xl">visibility</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Our Vision</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                        To become the global gold standard for artisanal coffee culture, fostering a community that celebrates patience, quality, and the timeless connection between humans and the bean. We envision a world where luxury is defined by craft and care.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Values Section -->
+<section class="py-margin-desktop px-gutter max-w-container-max mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Our Core Values</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="group flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border border-tertiary/20 flex items-center justify-center mb-4 group-hover:bg-tertiary transition-all duration-300">
+<span class="material-symbols-outlined text-3xl text-tertiary group-hover:text-on-tertiary">workspace_premium</span>
+</div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Quality</h4>
+</div>
+<div class="group flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border border-tertiary/20 flex items-center justify-center mb-4 group-hover:bg-tertiary transition-all duration-300">
+<span class="material-symbols-outlined text-3xl text-tertiary group-hover:text-on-tertiary">eco</span>
+</div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Freshness</h4>
+</div>
+<div class="group flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border border-tertiary/20 flex items-center justify-center mb-4 group-hover:bg-tertiary transition-all duration-300">
+<span class="material-symbols-outlined text-3xl text-tertiary group-hover:text-on-tertiary">volunteer_activism</span>
+</div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Hospitality</h4>
+</div>
+<div class="group flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border border-tertiary/20 flex items-center justify-center mb-4 group-hover:bg-tertiary transition-all duration-300">
+<span class="material-symbols-outlined text-3xl text-tertiary group-hover:text-on-tertiary">nature_people</span>
+</div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary">Sustainability</h4>
+</div>
+</div>
+</section>
+<!-- Meet Our Team -->
+<section class="py-margin-desktop bg-surface-container">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">The Hearts Behind the Haven</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Our dedicated team of artisans and hospitality experts work tirelessly to ensure every visit is perfect.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Team Member 1 -->
+<div class="group text-center">
+<div class="aspect-[3/4] rounded-[24px] overflow-hidden mb-6 custom-shadow">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A portrait of a professional chef in a clean white apron, standing in a sophisticated kitchen with copper cookware in the background. The lighting is warm and flattering, using a shallow depth of field. The style is high-end editorial photography for a lifestyle magazine. Primary colors are warm whites, copper, and dark wood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5RtUIJGb31Amsd7MG7SWLuQoi5osybPd1IsZECAvUyxwYLS8IDJyUN6cwV_x_cNW2dLT81sbejyKcB1xfhkEVFyE1Q9FL9uVtNg6Bx37oqjyjmwewqcZQkLMF91EVEWSIyY3KXyzf4JhJyxdnfcOUwDNCTMeBVRhTrTAUN3dxPaa8m-lgZPWfLh0jYZC6pEQsbSDHW_2GAakJnQ4hU_Dx4chps1hy4V-PHFYid_j7XsANXhZKw6bDcQ"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Julian Vane</h3>
+<p class="font-label-md text-tertiary uppercase tracking-widest mt-1">Head Pastry Chef</p>
+</div>
+<!-- Team Member 2 -->
+<div class="group text-center">
+<div class="aspect-[3/4] rounded-[24px] overflow-hidden mb-6 custom-shadow">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A portrait of a professional female barista with a confident smile, wearing a dark leather apron. She is standing behind a gleaming espresso machine in a modern, sunlit cafe. The aesthetic is clean and luxurious, with soft bokeh highlighting her focused and friendly expression. Tones of gold, espresso brown, and cream." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUweIVBVpsjQG4SuPMJ63ES4Cr2lX14LStqt3m_jkDcF6Ws4fpIHiDn7GeMt0ZpkXVXEnjLUkz0LkuEVQ3P-hYwwlaTI245HqDvIDVSxiP2F75LdZIYPfEhQL9caMGVCh_xsY3In8tqpv9uDuvEX-_iTsd1ClUDdtfPd733OGMVwF0B_bZOMYsdbpu2OWkRMWIKfqgYAxbiGNRqc27uzQgtb_RJrje56jiy5I1sXqKV-ojlxOL0PsmiA"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Elena Rossi</h3>
+<p class="font-label-md text-tertiary uppercase tracking-widest mt-1">Lead Barista</p>
+</div>
+<!-- Team Member 3 -->
+<div class="group text-center">
+<div class="aspect-[3/4] rounded-[24px] overflow-hidden mb-6 custom-shadow">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A portrait of a distinguished man in a casual-smart blazer, looking thoughtfully towards the camera in a luxuriously designed cafe lounge. The background features architectural shelves filled with antique coffee grinders. The lighting is soft and artistic, creating a sense of sophisticated leadership and hospitality expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI4cia6Giys_p9aFa6akriRWX0szzWjxUfBvKwqkQV8uMYizPqiNs0hNakiQsBNBgU4IdrMCOFlLuh07fJyTu_1SkelWG4hPDFNMRgsk6Uu4_xNZKxi93O7msrG4ibVeTSSQPl24rMMYHSfNuUTcsqPN5UP0EzvyupMPKtC1M7j5z-1EzWXanSLT1Sn5oNSdsluCOrtD4BGuxCPdhvypj-LgC6MpO0OE-5-GMzQoamrf81Pt3HbQj7Mw"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Marcus Thorne</h3>
+<p class="font-label-md text-tertiary uppercase tracking-widest mt-1">Café Manager</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery (Bento-style Grid) -->
+<section class="py-margin-desktop px-gutter max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12 text-center">Moments at the Haven</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 rounded-[24px] overflow-hidden custom-shadow">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A wide panoramic shot of a premium cafe interior with high ceilings, large glass windows, and a combination of marble and dark wood surfaces. Customers are enjoying coffee in a relaxed, hallowed-out space filled with potted greenery and designer lighting. The atmosphere is serene and luxurious, using a palette of creams and earth tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNlHlLZosgtutctn6VzGqeRckGVn2Bx9ElSwowXkKEhAma2X_tGLMciJIJlzMa5jaR67Xr_TvS7SxKHd4BxhEDWekwuYRLugdRpfdgmfm0lkzy6YwOqkZbYfVOVowTsRyYOzPVFmmGgL5sS3bJRqzp93MZd_olLg7dWFP09Ko4DeN0xZ9SN8CVz0wgLjqLkEfd5LTwjqyj6nGGaIUfC6VrENHcsuZW9YypPvF0XaazczmO1U3hhKCETw"/>
+</div>
+<div class="md:col-span-1 rounded-[24px] overflow-hidden custom-shadow">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A top-down aesthetic shot of a marble table with a white ceramic cup of latte, a small artisanal pastry on a gold-rimmed plate, and a minimalist open journal. Soft morning light casts long shadows across the scene. Quiet luxury and morning peace theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgL8V6QtGtFW8kUxRruBfBYECfc47oejiUq1byByh7JEHig8Ljl6PSw9ufT97_-Zqb229oNhmQxh_IwR3f43BNm9k-Bi4qGELr9KcEPw5O_P3kMpeV7LS9zvantxVkNaKWbjlWlV3p4cVTD9U07sEsVVnl4zJlya8oYBnh42FUxBF7WXfRgqhs6BL0P2yglJu1_XHFdhJ8654dNmI7cw24dqfAykDGxLBr8wsuzFLCk69io5OAVUrmog"/>
+</div>
+<div class="md:col-span-1 rounded-[24px] overflow-hidden custom-shadow">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="Macro shot of roasted coffee beans overflowing from a burlap sack, with a focused beam of light catching the oily, rich texture of the beans. Deep warm browns and golden highlights predominate. High-end product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBufRMkDoa3EJJu5J3sniFuIuA9qY2jVhlKEUPmV7Dk4TdWqKAIE9h1gyht3jLiRwzLCh398ARVBsaiDSJxITwc7bLLpfnTUOx07JW19brTzJHvM_AnwTDrS8vua1TEKmGNETb7OzcjI6e_BEFKb8SmPuTEPRzh9l5hvmMfFxmXrcmYukp-fgkb55GT-p2CkQfNlM1xjQ1vdKb3Zg1kc69wqjH0iXWs0eeavi-wmzbKO3R2qRkesTBXkg"/>
+</div>
+<div class="md:col-span-2 rounded-[24px] overflow-hidden custom-shadow">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A close-up of a slow pour-over coffee setup on a minimalist counter. Hot water is being poured from a sleek black kettle into a glass dripper. Steam is visible against a dark background, highlighting the artisanal precision of the process. Moody and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSRq8ZBvod_2eFkjBEHth2Qp_wTGsoDMZ7on5qmflHczMAgXmwLrtYQmpXjd1yp-Ng4WrbWB_tAPp9bMbC5w8-3QA0--rYVDy3wontAC8JA_l8HxA3VM2wwIe7_g6ouCrNdAQyOMqTNYhpL-fftDmd1JF_wcdTkvL_tPOVnVjuxWaofWAsHug5Y1Tf5l4Xt6wQ3Op8HTTJzVnMZeOUEZBcpldfIMfr5RVQc-YmNOtmYHsFUvlD9-_Slw"/>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="relative py-32 px-gutter overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="A blurred, ethereal background of a cafe at twilight, with warm glowing lights reflected in polished surfaces. The mood is welcoming and magical, suggesting a perfect end to the day. Soft focus and high-end bokeh effects." style="background-image: url('https://images.unsplash.com/=1600&q=80')">
+</div>
+<div class="absolute inset-0 bg-primary-container/80 backdrop-blur-md"></div>
+</div>
+<div class="relative z-10 text-center max-w-3xl mx-auto space-y-8">
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg text-surface">Visit Us Today and Experience the Difference</h2>
+<p class="font-body-lg text-surface/80">Every cup tells a story. We invite you to become a part of ours.</p>
+<button class="bg-tertiary text-on-tertiary px-12 py-4 rounded-full font-label-md text-label-md hover:bg-surface hover:text-tertiary transition-all duration-500 transform hover:scale-105 shadow-xl">
+                    Reserve Your Table
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-surface-container-lowest w-full py-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto text-primary-fixed-dim/80">
+<div class="space-y-4">
+<h3 class="font-display-lg text-headline-md text-primary-fixed dark:text-primary">The Basil Cafe & Restro</h3>
+<p class="font-body-md">Crafting moments of peace through the artisanal art of coffee roasting and brewing since 2012.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-tertiary-fixed font-bold uppercase tracking-widest">Connect</h4>
+<ul class="space-y-2 font-body-md">
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">Facebook</a></li>
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">WhatsApp</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-tertiary-fixed font-bold uppercase tracking-widest">Hours</h4>
+<ul class="space-y-2 font-body-md">
+<li>Mon - Fri: 7:00 AM - 8:00 PM</li>
+<li>Sat - Sun: 8:00 AM - 10:00 PM</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-tertiary-fixed font-bold uppercase tracking-widest">Find Us</h4>
+<ul class="space-y-2 font-body-md">
+<li>123 Artisan Lane</li>
+<li>Heritage District, BH 90210</li>
+<li>N/A</li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-surface/10 text-center font-body-md text-primary-fixed-dim/60">
+            © 2024 The Basil Cafe & Restro All Rights Reserved.
+        </div>
+</footer>
+<script>
+        // Smooth fade-in on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-[fadeInUp_1s_ease_forwards]');
+                    entry.target.classList.remove('opacity-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section h2, section p, .glass-card').forEach(el => {
+            el.classList.add('opacity-0');
+            observer.observe(el);
+        });
+
+        // Simple animation styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body></html>
+
+
