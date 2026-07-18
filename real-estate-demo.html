@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Real Estate</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #d4af37; /* Gold */
+            --text-light: #f5f5f5;
+            --text-dark: #333333;
+            --bg-light: #ffffff;
+            --bg-gray: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('./hero_luxury_home_1784376814293.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: var(--text-light);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .dynamic-greeting {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent);
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        #clientNameDisplay {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Properties Section */
+        .properties {
+            padding: 5rem 5%;
+            background-color: var(--bg-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 300;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+            margin: 1rem auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 250px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .price {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .address {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .btn:hover {
+            background-color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Elite<span>Estates</span></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Dream Home</h1>
+            <p>Exclusive luxury properties in the most sought-after neighborhoods.</p>
+            
+            <div class="dynamic-greeting" id="greetingContainer" style="display: none;">
+                <p>Welcome, <span id="clientNameDisplay">Guest</span>!</p>
+                <p style="font-size: 0.9rem; margin-top: 5px;">We have prepared an exclusive portfolio for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="properties">
+        <div class="section-header">
+            <h2>Featured Listings</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('./property_interior_1784376830928.jpg');"></div>
+                <div class="card-content">
+                    <div class="price">$3,450,000</div>
+                    <div class="address">124 Luxury Lane, Prestige District</div>
+                    <p style="color: #666; font-size: 0.9rem;">4 Beds • 4.5 Baths • 4,200 sqft</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img" style="background-image: url('./property_condo_view_1784376846661.jpg');"></div>
+                <div class="card-content">
+                    <div class="price">$1,890,000</div>
+                    <div class="address">88 Skyline Blvd, Penthouse 4B</div>
+                    <p style="color: #666; font-size: 0.9rem;">2 Beds • 2 Baths • 1,800 sqft</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="section-header">
+            <h2 style="color: white;">Ready to Make a Move?</h2>
+            <div class="line"></div>
+        </div>
+        <p id="contactMessage">Contact our premier agents today for a private showing.</p>
+        <a href="#" class="btn" id="contactBtn">Contact Us</a>
+    </section>
+
+    <script>
+        // Extract URL Parameters to personalize the page
+        const urlParams = new URLSearchParams(window.location.search);
+        const clientName = urlParams.get('name');
+        const clientPhone = urlParams.get('phone');
+
+        if (clientName) {
+            // Show personalized greeting
+            document.getElementById('greetingContainer').style.display = 'inline-block';
+            document.getElementById('clientNameDisplay').textContent = clientName;
+            
+            // Personalize contact section
+            document.getElementById('contactMessage').innerHTML = `Hi <strong>${clientName}</strong>, we are ready to assist you.`;
+        }
+
+        if (clientPhone) {
+            // Update contact button to call the scraped phone number
+            const btn = document.getElementById('contactBtn');
+            btn.href = `tel:${clientPhone.replace(/[^0-9+]/g, '')}`;
+            btn.textContent = `Call ${clientPhone}`;
+        }
+    </script>
+</body>
+</html>
