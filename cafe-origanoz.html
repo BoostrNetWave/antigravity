@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cafe Origanoz | Every Cup Tells a Story</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdad4",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-background": "#1b1d0e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#ae8d87",
+                    "secondary-fixed": "#ffdcc6",
+                    "tertiary": "#755b00",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303221",
+                    "primary-container": "#3e2723",
+                    "secondary-fixed-dim": "#eabda0",
+                    "outline": "#827472",
+                    "inverse-on-surface": "#f2f2d9",
+                    "surface-container-highest": "#e4e4cc",
+                    "surface-container": "#efefd7",
+                    "on-primary-fixed": "#2b1613",
+                    "secondary": "#79573f",
+                    "on-surface": "#1b1d0e",
+                    "surface-container-high": "#eaead1",
+                    "primary-fixed-dim": "#e3beb8",
+                    "on-secondary-fixed": "#2d1604",
+                    "on-surface-variant": "#504442",
+                    "background": "#fbfbe2",
+                    "tertiary-container": "#cea72c",
+                    "on-secondary-fixed-variant": "#5f402a",
+                    "tertiary-fixed-dim": "#ecc246",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-secondary-container": "#7a5840",
+                    "surface": "#fbfbe2",
+                    "tertiary-fixed": "#ffe08e",
+                    "primary": "#271310",
+                    "inverse-primary": "#e3beb8",
+                    "outline-variant": "#d3c3c0",
+                    "surface-tint": "#745853",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#5b403c",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#584400",
+                    "surface-variant": "#e4e4cc",
+                    "surface-container-low": "#f5f5dc",
+                    "surface-dim": "#dbdcc3",
+                    "surface-bright": "#fbfbe2",
+                    "secondary-container": "#ffd1b3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Poppins"],
+                    "label-md": ["Poppins"],
+                    "body-lg": ["Poppins"],
+                    "headline-md": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(251, 251, 226, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(39, 19, 16, 0.4), rgba(39, 19, 16, 0.7));
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cea72c;
+            border-radius: 10px;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 12px 32px rgba(62, 39, 35, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-tertiary-fixed-dim selection:text-on-tertiary-fixed">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-tertiary/10 shadow-sm">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<h1 class="font-display-lg text-display-lg-mobile md:text-headline-md text-primary tracking-tight">Cafe Origanoz</h1>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-tertiary font-bold border-b-2 border-tertiary pb-1 transition-colors duration-300" href="cafe-origanoz.html">Home</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="cafe-origanoz-about.html">About Us</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="cafe-origanoz-menu.html">Online Order</a>
+<a class="font-label-md text-label-md text-on-surface-variant font-medium hover:text-tertiary transition-colors duration-300" href="cafe-origanoz-contact.html">Contact Us</a>
+</nav>
+<div class="flex items-center gap-4"><div class="hidden lg:flex flex-col text-right"><span class="text-xs text-on-surface-variant font-medium">Call us today</span><a href="tel:N/A" class="font-label-md text-primary font-bold hover:text-tertiary transition-colors">N/A</a></div><a href="cafe-origanoz-menu.html" class="bg-tertiary-container hover:bg-primary-container text-on-tertiary-container hover:text-white px-6 py-2 rounded-full font-label-md transition-all duration-300 active:scale-95 shadow-md whitespace-nowrap">Order Now</a></div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-[10s] hover:scale-110" data-alt="A cinematic, high-angle interior shot of a luxury boutique café at sunrise. Warm, golden sunlight streams through large floor-to-ceiling windows, illuminating polished oak tables, emerald velvet armchairs, and a sleek marble espresso bar. The air is slightly misty with the steam of freshly brewed coffee. The atmosphere is quiet, sophisticated, and deeply welcoming, using a palette of creams, rich browns, and metallic gold accents." style="background-image: url('https://images.unsplash.com/=1600&q=80')">
+</div>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative z-10 text-center px-gutter max-w-4xl mx-auto">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6 leading-tight">
+                Every Cup <span class="italic font-normal">Tells a Story</span>
+</h2>
+<p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-2xl mx-auto">
+                Freshly brewed coffee, handcrafted beverages, delicious meals, and unforgettable moments in the heart of our artisan roastery.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-tertiary-container text-on-tertiary-container hover:bg-white hover:text-primary px-10 py-4 rounded-full font-label-md text-lg transition-all duration-300 shadow-xl">
+                    Order Online
+                </button>
+<button class="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-4 rounded-full font-label-md text-lg transition-all duration-300">
+                    View Menu
+                </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/60">
+<span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Featured Menu: Curated Selections -->
+<section class="py-margin-desktop bg-surface px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="max-w-xl">
+<span class="text-tertiary font-label-md tracking-widest uppercase mb-4 block">Our Specialties</span>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary">Curated Selections</h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline/20 flex items-center justify-center hover:bg-tertiary hover:text-white transition-all"><span class="material-symbols-outlined">arrow_back</span></button>
+<button class="w-12 h-12 rounded-full border border-outline/20 flex items-center justify-center hover:bg-tertiary hover:text-white transition-all"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+<!-- Coffee Card -->
+<div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional close-up of a latte with intricate heart-shaped foam art in a ceramic artisanal cup. The lighting is soft and moody, highlighting the silky texture of the milk and the rich crema of the coffee. The background features a blurred wooden coffee bar and vintage brass accessories. Modern minimalism meets rustic luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGyDCQozR2OfdvtYB_5oCmaPpmF8oieQOlEtdtoYEwb3Zd4pjbYxfq1wSXU1t5s0JChqD17B5-E0SPw2oaTx6sK8mqmkyHFsvAT5leszg8jJCmktRDAmfMCaga2voom8kqt5FgYkWrP1MDSq6sPxcTWEuwKBSX_r6x34VHOk2xR6qwNXlgv_s191wEL_cdw-RwhWx4RVYsWQuFN8c6sOMOJzE32PAIfjMJBjj3Zujf0lNK29Fk4Z4YFg"/>
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">&#8377;4.50</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg mb-2 text-primary">Signature Roast</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">Ethiopian beans with notes of jasmine and citrus.</p>
+</div>
+</div>
+<!-- Tea Card -->
+<div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An elegant glass teapot filled with loose leaf green tea, with steam rising gracefully in a sun-drenched minimalist kitchen. Fresh tea leaves and delicate floral petals are visible in the water. The aesthetic is clean, bright, and serene, focusing on high-key lighting and natural textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLrc5-m1wkGAoUH_icn-meWMhCOua_PVAHjAe-sdhsdAsoSL7tXFRrDZo_fD-DHHecm4pmdQxIbmUEGnNzBVeR5EpFeu3Ao0qUZBVcZhqCSSdbbCAmdcrqwrnJB60HcF2rk1HIzybxobOZ-OzjW6HnDbZKrRjq3MmGQqKK8T48nzVBHLCayWHce6C3s1P4Jaw2MoUHiTzfZiq5ksdLcgnvUbZuStWcLSVNFrJpe_oRUoBHQRoKUBAclw"/>
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">&#8377;3.95</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg mb-2 text-primary">Artisan Tea</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">Hand-picked loose leaf tea from the misty hills.</p>
+</div>
+</div>
+<!-- Sandwich Card -->
+<div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A gourmet artisan sandwich on toasted sourdough bread, featuring layered avocado, heirloom tomatoes, and melted mozzarella. The photograph is shot from a top-down perspective on a dark slate plate with a sprinkle of fresh herbs. Vibrant colors and rich textures create a mouth-watering, premium culinary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXmbKzXqDbR_dZCPQ-Sg6IoSQl-gDh5TN5BqiICm7TtF4NXo3zutBOAZqYSizN9TeiqotQ7hHd0yssDrtKT8MvMpRc5ZEjMElK6tMd0x1IS52_CB47zW_N3nYSm2M-D2lqTnq35epVB3ruksMfjkSBK7-VjBVktRT_c2lziaE4hgsLjex1yHt93q3BFJsB-wObHugqcDUvFzAi5NRMhVdohkix0jIGuKwn0jeNUTZqWJ8SDA9FN_wGdA"/>
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">&#8377;12.00</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg mb-2 text-primary">Club Panini</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">Sourdough bread with smoked turkey and pesto.</p>
+</div>
+</div>
+<!-- Pizza Card -->
+<div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A Neapolitan pizza with a perfectly charred, bubbly crust, topped with fresh basil, buffalo mozzarella, and rich tomato sauce. The pizza sits on a rustic wooden board in a high-end Italian restaurant setting. Atmospheric lighting from a wood-fired oven creates warm, deep shadows and golden highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxchykxZzjMRoSZbGM18TGCM5uegA1H-XVLgMqS8wpvEi7RrS1FWCUy1CDbdVcC6ztH_3vcQBAygvkkMoGEfj6wmG3cELZ84T8j45gGv5mFac5eycua9PL17_SIm1naQgzxNs9RRxLOnvGITrZbpYy9LYH-Z1_j_88NaWBkdQ6VWPfjakb0utaV8MtA7nFwAWUTYxKEhzBqMp0Ja1c4cZpqL28YKx95nSvFxIe3g7Gdxw2H2RTqqvpxA"/>
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">&#8377;14.50</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg mb-2 text-primary">Truffle Pizza</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">Wild mushrooms, truffle oil, and fresh rocket.</p>
+</div>
+</div>
+<!-- Dessert Card -->
+<div class="group bg-white rounded-[24px] overflow-hidden shadow-sm hover-lift border border-tertiary/5">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A decadent dark chocolate lava cake with a molten center, dusted with powdered sugar and served with a single raspberry and a mint leaf. The dessert is presented on a cream-colored porcelain plate. The lighting is sophisticated and directional, emphasizing the rich, velvety texture of the chocolate against a dark, moody background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHyvaP9xolxrbz0GFrd6vQd8jDKnSJdJJdlF1kggUnU4Fo9DEr2rmKEAAw-_3WS3WHN0rQyxjNgZXwL1CwLOMa7Ip6QgNud768VJ7fFAOUmz-vVH30OWaWVDSuBoMkGa8VZyzURl7ywDVF9v3nSTxEkvbEiLujQqcuyKulk4qcggE2IOohlArvFAu8qJFCoSoiWnvkvwLZMFVszuFN8DkA2GP8G4y77vEsPtZBdrJaCR-On5cYVzHWKg"/>
+<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-xs font-bold">&#8377;8.00</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg mb-2 text-primary">Lava Cake</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">70% dark cocoa with a molten warm center.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-margin-desktop bg-surface-container-low px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Why Choose Us</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Crafting moments of joy, one cup at a time, with an obsession for quality and detail.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+<div class="bg-tertiary/10 p-4 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary text-3xl">eco</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-2">Premium Beans</h4>
+<p class="text-on-surface-variant text-sm">Directly sourced ethical beans roasted daily in-house.</p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+<div class="bg-tertiary/10 p-4 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary text-3xl">restaurant</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-2">Fresh Ingredients</h4>
+<p class="text-on-surface-variant text-sm">Organic produce and artisan breads delivered every morning.</p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+<div class="bg-tertiary/10 p-4 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary text-3xl">living</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-2">Cozy Ambience</h4>
+<p class="text-on-surface-variant text-sm">Thoughtfully designed spaces for work or relaxation.</p>
+</div>
+</div>
+<!-- Feature 4 -->
+<div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+<div class="bg-tertiary/10 p-4 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary text-3xl">coffee_maker</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-2">Master Baristas</h4>
+<p class="text-on-surface-variant text-sm">Award-winning specialists dedicated to coffee perfection.</p>
+</div>
+</div>
+<!-- Feature 5 -->
+<div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+<div class="bg-tertiary/10 p-4 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary text-3xl">wifi</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-2">Free Wi-Fi</h4>
+<p class="text-on-surface-variant text-sm">High-speed connectivity for your digital nomad lifestyle.</p>
+</div>
+</div>
+<!-- Feature 6 -->
+<div class="p-8 bg-white/50 backdrop-blur-xl rounded-[24px] border border-white flex gap-6 items-start">
+<div class="bg-tertiary/10 p-4 rounded-2xl">
+<span class="material-symbols-outlined text-tertiary text-3xl">bolt</span>
+</div>
+<div>
+<h4 class="font-headline-md text-xl mb-2">Fast Service</h4>
+<p class="text-on-surface-variant text-sm">Quality that respects your time, served with a smile.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Today's Special -->
+<section class="py-margin-desktop bg-surface px-gutter overflow-hidden">
+<div class="max-w-container-max mx-auto">
+<div class="flex items-center gap-4 mb-12">
+<div class="h-px bg-tertiary/20 flex-grow"></div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center px-4 whitespace-nowrap">Today's Special</h2>
+<div class="h-px bg-tertiary/20 flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Special 1 -->
+<div class="relative group">
+<div class="aspect-[4/5] rounded-[32px] overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A gourmet breakfast bowl featuring a perfectly poached egg, smoked salmon slices, fresh avocado, and vibrant greens, all drizzled with a rich hollandaise sauce. The dish is presented on an artisan ceramic plate, bathed in bright, clean morning light. Professional food photography with a shallow depth of field and premium light-mode tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNikV7zZxieKYNVHMDQQ4Ubyt11u8KMt0siTzkRxpDt2E8rvtn5kM37pB91o6PbJh7VC_m206565H0bT8KCojliAsVRLn4HEUTJpZBEMTiBEoHG8qEM44085WILCXaIrU_I_3ucCO8JYYqroXwIoiTSGnKGhBOpUMPiuL4LNhgjo17in89wgGt1iwDRZ-MQAa3PyM0BUXU1oJrSqmw7DpLMti9d7XgfWYaMofYZVyrP_n-VVEMS75CTg"/>
+<div class="absolute top-6 left-6 bg-primary text-white font-label-md px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">Recommended</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-2xl mb-2">Atlantic Brunch Bowl</h3>
+<p class="text-on-surface-variant mb-4">Poached egg, smoked salmon, avocado, and microgreens.</p>
+<span class="text-tertiary font-bold text-xl">&#8377;18.00</span>
+</div>
+</div>
+<!-- Special 2 -->
+<div class="relative group md:-translate-y-12">
+<div class="aspect-[4/5] rounded-[32px] overflow-hidden mb-6 shadow-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxury cold brew coffee served in a tall, minimalist glass with large, clear ice cubes. Condensation beads on the glass, while a splash of oat milk creates beautiful swirls within the dark coffee. The scene is shot in a bright, modern interior with soft-focus plants in the background. Calm, refreshing, and high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqRq_UWmCTZmdVKd88833LSNR8hSH5I61U-kIR2effvqThlGMb12K8-1iVtPaHRd6zH9DdT79dOaCeQ39pMSlOR5H0x6eETaZfTO88mf7hWhgQTtcfmoJHgUAs6EVw1QRdfqzZsopr4tQgTx4-3vqA8nfIwPHQ2m8czHDBTjetw4N28t34gaA4uDhl_10i3TGWHs9--Cqbm_TYhKGbb4Rte0Vy59oRtWAWmzndpTT-N2XsHZR5bqvODA"/>
+<div class="absolute top-6 left-6 bg-tertiary text-white font-label-md px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">Chef's Pick</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-2xl mb-2">Honey Oak Cold Brew</h3>
+<p class="text-on-surface-variant mb-4">Slow-steeped 24h cold brew with honey and creamy oat milk.</p>
+<span class="text-tertiary font-bold text-xl">&#8377;6.50</span>
+</div>
+</div>
+<!-- Special 3 -->
+<div class="relative group">
+<div class="aspect-[4/5] rounded-[32px] overflow-hidden mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A trio of freshly baked artisanal pastries including a flakey croissant, a pain au chocolat, and a fruit-topped danish. They sit on a marble countertop in a bright café, with golden brown textures catching the light. The mood is indulgent and premium, emphasizing traditional French baking craft and fresh, high-quality ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb-zvGXr3FDv-NB9cG3MwTy2dnw2zAtSM91pHl9lkVy0K73GYuwQaJUh50Q6Z0cCV8eE_lGFC_tBYhdymEeaHiJojfmfiznMr3M-Kqam-WHQJIW8JHzH0mLbxCPlHY1JpHIRO--9yN5v8BlxHJfP2oZa7a5QwGcrqsVQpiLbM3nsY913hNMipLe103pOWDEK98k0YLt6V-FxWy_kRpMnfgX2M-moSPXTiFNFdg5IDNuHnrqEtZG6vDgQ"/>
+<div class="absolute top-6 left-6 bg-primary text-white font-label-md px-4 py-2 rounded-full uppercase tracking-widest text-[10px]">Limited</div>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-2xl mb-2">Morning Pastry Trio</h3>
+<p class="text-on-surface-variant mb-4">Buttery croissant, pain au chocolat, and fruit danish.</p>
+<span class="text-tertiary font-bold text-xl">&#8377;14.00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Slider -->
+<section class="py-margin-desktop bg-primary-container text-on-primary-container px-gutter relative overflow-hidden">
+
+<div class="max-w-4xl mx-auto relative z-10">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-5xl text-tertiary-fixed mb-6">format_quote</span>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-white">What Our Guests Say</h2>
+</div>
+<div class="relative">
+<div class="review-slide flex flex-col items-center text-center">
+<p class="font-headline-md text-xl md:text-2xl text-white/90 italic leading-relaxed mb-10 max-w-2xl">
+                        "The best coffee experience in the city. The attention to detail in every pour and the warm, inviting atmosphere make it my favorite morning ritual."
+                    </p>
+<div class="flex items-center gap-4 mb-4">
+<img class="w-16 h-16 rounded-full border-2 border-tertiary-fixed object-cover" data-alt="A portrait of a sophisticated woman in her 30s smiling warmly in a bright, modern café. She is wearing a soft cream-colored sweater and holding an artisanal ceramic mug. The lighting is flattering and natural, creating a sense of genuine happiness and comfort in a premium setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXgD9E_jbcka7JQDdGjLcdnPLt1-_HuC19Sun9KYS0F4v2_tljzkwIuvHzybTUtAV3Lc1Y_NN1tq-9UNJDpuSQIEK56C550MnQfMAC0usm6-toHOUwBLNJlTQfPKni7ybjRuTytshFwXtaBgrXoFsZ3kR8b0hGgYl0qUpqURy-xuHJxboSUaAfzOmNArywhxe578FYAOC_ZKVadcemfWpVeBwl2ZJlq6iCBreruxKkFY2KJwqjKAg6Vw"/>
+<div class="text-left">
+<h5 class="text-white font-bold">Sophia Martinez</h5>
+<p class="text-white/60 text-sm">Local Guide • 154 Reviews</p>
+</div>
+</div>
+<div class="flex gap-1 text-tertiary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Preview -->
+<section class="py-margin-desktop bg-surface px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-center mb-12">
+<h2 class="font-display-lg text-headline-lg text-primary">Through Our Lens</h2>
+<button class="bg-primary hover:bg-tertiary text-white px-8 py-3 rounded-full font-label-md transition-all">View Full Gallery</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+<div class="row-span-2 overflow-hidden rounded-3xl relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide interior shot of a minimalist café with architectural wooden slats on the ceiling and large windows overlooking a lush garden. Customers are seen in soft-focus silhouettes, enjoying their coffee in quiet corners. The light is soft and diffused, highlighting the elegant, quiet luxury of the environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN9ixvrG89jnzleeJlLJXka3HrNNLvZvBuCLb7oNTOfTtfu3K__mEZHO_LHOxEEc-_rpPiHBNB8ySHlJ7aLrxaVhKWEDSHER4UpCL7YqLQL3IHEnVMJMnGtxgfeW4969Q-n31T25xXh6YFwBkgdaNwKKhyK1_-SInoPS__UFSkZ8roibL95or0cKGwVbBc309B9Yhm_6sZuUw9dAISw6IYVU8o90mXAr00UeGT0N9O93KJ-6oiiI2acA"/>
+</div>
+<div class="overflow-hidden rounded-3xl relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed macro shot of dark, shiny roasted coffee beans falling into a vintage brass hopper. The lighting is dramatic, emphasizing the oily texture and rich color of the beans. The scene captures the raw beauty of the roasting process in an artisanal setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXgAi2h8oMueIQZQzKpbJGs5OSqmpBvjbsGMNIgEBdnhFOWuf-tovW7VfiZQvl1T7gssMP1roNdrAMXwrLbRLn1rAs1RbgeMAUqGUnYDkyHvPjrd2YI2WifCJnvvfY9wOvYyAAvECEz1d2f-gR2VpmufE7n15ZwfYbRRNYFs3Y-9j8lZjR5T4cG8EWO23SPag9mC4c-EM3eA-JBpv44f9ecycQ1ZrKXagi8QzhAJ4mIdmovRWLucIYnQ"/>
+</div>
+<div class="overflow-hidden rounded-3xl relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A hand delicately pouring steamed milk into a double espresso to create a perfect rosetta latte art. The steam is visible against a dark background, and the focus is sharp on the surface of the coffee. Professional barista skills captured in a high-end, artistic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWjl0UnnU3LzxVOb6Hc0m7YUKXKrG5QcTF5zGcw7hTe3XIiEdi6qIJE6XPIFgRVCEhnhya1VD_uLYz1EGSEm8o03zTjO3HDyIoRCwoVnmvudgPVTqVtQfPrv-J0Z4GbMXgZqZrQsQIc7RYt-88Mlf74FM3JdFYAfOfg_mc9ykTMFTgkXsUgG3_uIrRH7LS0ra_9rGag4K34_yHhzOHviACTU0mv6435uvV44GI0N5O7kiOmQ16avN_JQ"/>
+</div>
+<div class="row-span-2 overflow-hidden rounded-3xl relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A beautifully plated avocado toast on a ceramic dish, garnished with edible flowers and toasted seeds, sitting on a marble table next to a window. Bright morning light creates soft shadows and a fresh, appetizing appearance. Premium brunch aesthetic with light-mode colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjt6eN6QFhf3AVK5N4JXJCPTFyCouTXxY55aaql3C39cmRb6if8EG3YePRC_IvO6XZWwDzizChZUm7y9Hrl6vMasxLMpLoo1cI29g9zN_PWJS_2SmsMRh1PdilAeLSkH9Q1AOO1uB_wPSEis9pmkZ6hyLM9TarHZ-G9uHeMqzC6tHdsvtkHVsMyw59ZIx7KuI8FIXGL3n9fayTY1MD8Iu0Dy_fAYCGQc3alY3d3XRlU0cdQyjrXr_pjQ"/>
+</div>
+<div class="col-span-2 overflow-hidden rounded-3xl relative group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cozy corner of the café with a plush leather armchair, a small side table holding a steaming cup of coffee and an open book. A floor lamp casts a warm, soft glow over the scene. The atmosphere is quiet and intellectual, perfect for relaxation or deep thought." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2waD2KQVjGHfn8ukTkHBabQ9BOkkjIuANTyGDmyiTTckL-IfkPiWebor8KEtJVghuZ3MvLJPfX01_A6F3gYs1BNYSduDn3FjuvaADNg2JQtbGzyOHwWEX6QP-GNM4K7tKJ06EWYCjqOrZjEg-BnYAHDxfhWa0xc0VIYg1OwCoyzQYfZ-2IVPHl65z6c9cSWkEXSi08YHQPHfeatT8KbAHup52f17enmuocTAo56AVIf4JXhyfxUU1ng"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Banner -->
+<section class="px-gutter mb-margin-desktop">
+<div class="max-w-container-max mx-auto relative rounded-[48px] overflow-hidden py-24 text-center">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="An atmospheric, low-light shot of an empty espresso bar at twilight. The brass machines and glass vessels catch the last rays of sun, creating a warm, golden glow against deep, shadowy backgrounds. The mood is evocative and peaceful, symbolizing the transition from the busy day to a calm evening." style="background-image: url('https://images.unsplash.com/=1600&q=80')"></div>
+<div class="absolute inset-0 bg-primary/60 backdrop-blur-[2px]"></div>
+<div class="relative z-10 px-gutter">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-white mb-8">Life Begins After Coffee.</h2>
+<div class="flex items-center gap-4"><div class="hidden lg:flex flex-col text-right"><span class="text-xs text-on-surface-variant font-medium">Call us today</span><a href="tel:N/A" class="font-label-md text-primary font-bold hover:text-tertiary transition-colors">N/A</a></div><a href="cafe-origanoz-menu.html" class="bg-tertiary-container hover:bg-primary-container text-on-tertiary-container hover:text-white px-6 py-2 rounded-full font-label-md transition-all duration-300 active:scale-95 shadow-md whitespace-nowrap">Order Now</a></div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-surface-container-lowest w-full py-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-2">
+<h3 class="font-display-lg text-headline-md text-primary-fixed dark:text-primary mb-6">Cafe Origanoz</h3>
+<p class="text-primary-fixed-dim/80 font-body-md max-w-sm mb-8">Crafting premium coffee experiences and culinary delights since 2012. Join us in our journey of taste and discovery.</p>
+<div class="flex gap-4">
+<a class="text-primary-fixed-dim/80 hover:text-tertiary-fixed transition-colors" href="#"><span class="material-symbols-outlined">face_nod</span></a>
+<a class="text-primary-fixed-dim/80 hover:text-tertiary-fixed transition-colors" href="#"><span class="material-symbols-outlined">camera_enhance</span></a>
+<a class="text-primary-fixed-dim/80 hover:text-tertiary-fixed transition-colors" href="#"><span class="material-symbols-outlined">call</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Opening Hours</h4>
+<ul class="space-y-4 text-primary-fixed-dim/80">
+<li class="flex justify-between"><span>Mon - Fri:</span> <span>7:00 AM - 9:00 PM</span></li>
+<li class="flex justify-between"><span>Saturday:</span> <span>8:00 AM - 10:00 PM</span></li>
+<li class="flex justify-between"><span>Sunday:</span> <span>8:00 AM - 8:00 PM</span></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Contact &amp; Visit</h4>
+<address class="not-italic text-primary-fixed-dim/80 space-y-4">
+<p class="flex items-start gap-2"><span class="material-symbols-outlined text-sm">location_on</span> Bhubaneswar, Odisha</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">call</span> N/A</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span> hello@boostrnetwave.com</p>
+</address>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-16 pt-8 border-t border-white/10 text-center">
+<p class="text-primary-fixed-dim/60 font-body-md text-sm">© 2024 Cafe Origanoz All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Smooth reveal on scroll interaction
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
+
+
