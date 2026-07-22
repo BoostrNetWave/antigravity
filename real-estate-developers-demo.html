@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury UAE Developers</title>
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --accent: #c5a880; /* Desert Gold */
+            --text-light: #ffffff;
+            --text-dark: #222222;
+            --bg-light: #f4f4f4;
+            --bg-gray: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cinzel', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.3)), url('./developer_skyscraper_1784703780808.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            color: var(--text-light);
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: #cccccc;
+        }
+
+        .dynamic-greeting {
+            background: rgba(197, 168, 128, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        #clientNameDisplay {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        /* Developments Section */
+        .properties {
+            padding: 6rem 5%;
+            background-color: var(--bg-gray);
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--text-light);
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-header .line {
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .card {
+            background: var(--primary);
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(197, 168, 128, 0.1);
+            border-color: var(--accent);
+        }
+
+        .card-img {
+            height: 350px;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 2.5rem;
+        }
+
+        .project-title {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .location {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('./developer_interior_1784703818106.jpg') center/cover fixed;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 4rem;
+            background-color: transparent;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 2px solid var(--accent);
+            transition: all 0.3s ease;
+            margin-top: 3rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Aura<span>Developments</span></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Shaping The Skyline</h1>
+            <p>Pioneering ultra-luxury off-plan developments across the UAE.</p>
+            
+            <div class="dynamic-greeting" id="greetingContainer" style="display: none;">
+                <p style="font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: #aaa;">Exclusive Preview For:</p>
+                <p id="clientNameDisplay">Guest</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="properties">
+        <div class="section-header">
+            <h2>Current Projects</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('./developer_villa_1784703800506.jpg');"></div>
+                <div class="card-content">
+                    <div class="project-title">The Oasis Villas</div>
+                    <div class="location">Palm Jumeirah, Dubai</div>
+                    <p style="color: #999;">An exclusive collection of 12 ultra-luxury beachfront mansions with private infinity pools and bespoke architecture.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img" style="background-image: url('./developer_skyscraper_1784703780808.jpg');"></div>
+                <div class="card-content">
+                    <div class="project-title">Aura Tower</div>
+                    <div class="location">Downtown Dubai</div>
+                    <p style="color: #999;">A 90-story architectural masterpiece offering panoramic views of the Burj Khalifa and the Dubai Fountain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Partner With Us</h2>
+        <p id="contactMessage" style="color: #ccc; max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Connect with our investment relations team to explore off-plan opportunities.</p>
+        <a href="#" class="btn" id="contactBtn">Contact Developer</a>
+    </section>
+
+    <script>
+        // Extract URL Parameters to personalize the page
+        const urlParams = new URLSearchParams(window.location.search);
+        const clientName = urlParams.get('name');
+        const clientPhone = urlParams.get('phone');
+
+        if (clientName) {
+            document.getElementById('greetingContainer').style.display = 'block';
+            document.getElementById('clientNameDisplay').textContent = clientName;
+            document.getElementById('contactMessage').innerHTML = `Hi <strong>${clientName}</strong>, we are actively looking for visionary partners to collaborate on our upcoming mega-projects.`;
+        }
+
+        if (clientPhone) {
+            const btn = document.getElementById('contactBtn');
+            btn.href = `tel:${clientPhone.replace(/[^0-9+]/g, '')}`;
+            btn.textContent = `Call ${clientPhone}`;
+        }
+    </script>
+</body>
+</html>
