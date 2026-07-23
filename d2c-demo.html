@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium D2C Brand</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4rem;
+            min-height: 80vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .hero-image img:hover {
+            transform: translateY(-10px);
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #111;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 4rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+        .feature {
+            flex: 1;
+            margin: 0 1rem;
+        }
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Daily Routine.</h1>
+            <p>Experience the ultimate blend of nature and science. Our premium products are designed for the modern lifestyle.</p>
+            <div id="dynamic-greeting"></div>
+        </div>
+        <div class="hero-image">
+            <img src="d2c_lifestyle_product.jpg" alt="Premium D2C Product">
+        </div>
+    </div>
+    
+    <div class="features">
+        <div class="feature">
+            <h3>Sustainable</h3>
+            <p>100% recyclable packaging and ethically sourced ingredients.</p>
+        </div>
+        <div class="feature">
+            <h3>Clinically Proven</h3>
+            <p>Dermatologist tested and approved for all skin types.</p>
+        </div>
+        <div class="feature">
+            <h3>Cruelty-Free</h3>
+            <p>We never test on animals. PETA certified.</p>
+        </div>
+    </div>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const phone = urlParams.get('phone');
+        
+        const greetingDiv = document.getElementById('dynamic-greeting');
+        
+        if (name || phone) {
+            let html = '<p style="font-size: 1.2rem; font-weight: bold; color: #111;">Hello ';
+            if (name) {
+                html += decodeURIComponent(name) + '! ';
+            } else {
+                html += 'there! ';
+            }
+            html += 'We have a special offer just for you.</p>';
+            
+            if (phone) {
+                const whatsappUrl = 'https://wa.me/' + phone.replace(/\\D/g,'') + '?text=Hi,%20I%20am%20interested%20in%20your%20products!';
+                html += '<a href="' + whatsappUrl + '" class="btn" style="background-color: #25D366;">Chat with us on WhatsApp</a>';
+            } else {
+                html += '<a href="#" class="btn">Shop Now</a>';
+            }
+            greetingDiv.innerHTML = html;
+        } else {
+            greetingDiv.innerHTML = '<a href="#" class="btn">Shop Now</a>';
+        }
+    </script>
+</body>
+</html>
